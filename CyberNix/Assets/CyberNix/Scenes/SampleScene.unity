@@ -574,7 +574,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -847,7 +847,7 @@ MonoBehaviour:
   MinPitch: 0.8
   MaxPitch: 1.5
   DepthValue: 1.5
-  ObstacleSpawnChance: 0.15
+  ObstacleSpawnChance: 0.05
   DepthCount: 4
   GroundTheshold: 0.85
   Music: {fileID: 963194230}
