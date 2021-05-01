@@ -18,8 +18,6 @@ public class LevelService : MonoBehaviour
     private int CurrentPlayerDepth;
 
     private List<GameObject> _currentGroundTiles;
-    public int idxTile;
-    public float tileFactor;
     public int TileCount;
 
     void Start()
@@ -55,9 +53,7 @@ public class LevelService : MonoBehaviour
     void Update()
     {
         _handleTiles();
-        tileFactor += Time.deltaTime * Speed;
-        idxTile = Mathf.FloorToInt(tileFactor);
-        GroundTilesHolder.transform.position += Vector3.left * tileFactor;
+        GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             CurrentPlayerDepth--;

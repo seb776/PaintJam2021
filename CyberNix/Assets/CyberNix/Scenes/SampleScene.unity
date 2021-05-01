@@ -150,8 +150,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435821993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.139}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4.17, z: 5}
+  m_LocalScale: {x: 40.489708, y: 10.638107, z: 20.582323}
   m_Children: []
   m_Father: {fileID: 1444929639}
   m_RootOrder: 2
@@ -189,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7ec2a824eba39ee47a5a570dcb33f596, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -469,13 +469,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.09172963, y: -0, z: -0, w: 0.995784}
+  m_LocalPosition: {x: 0, y: 2.504, z: -8.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.526, y: 0, z: 0}
 --- !u!1 &1113568671
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,12 +509,10 @@ MonoBehaviour:
   GroundTilesHolder: {fileID: 1709897267}
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
   LevelInstances: {fileID: 1444929638}
-  Speed: 0.001
+  Speed: 10
   DepthValue: 0.5
   DepthCount: 0
   Player: {fileID: 1771821327}
-  idxTile: 0
-  tileFactor: 0
   TileCount: 40
 --- !u!114 &1113568673
 MonoBehaviour:
