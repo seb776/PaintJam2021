@@ -129,8 +129,8 @@ Shader "Unlit/PostFXShader"
 				half2 ps = half2(1.0, 1.0) / half2(_MainTex_TexelSize.z, _MainTex_TexelSize.w);
 				col = fixed4(Bloom(puv, _Threshold, _Radius, _Intensity, ps),col.w);
 
-				col += .25*saturate(col+.1)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*20.), r2d(-.5))*fixed2(1.0+sin(_Time.x*5.+uv.y*15.)*.0002, 0.1)*2.).x,15.)*fixed4(1.,1.,1.,1.);
-				col += .5*saturate(col + .1)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*50.), r2d(-.5))*fixed2(1.0 + sin(_Time.x*5. + uv.y*15.)*.0002, 0.1)*1.).x, 15.)*fixed4(1., 1., 1., 1.);
+				col += .25*saturate(col+.2)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*20.), r2d(-.5))*fixed2(1.0, 0.1)*2.).x,15.)*fixed4(1.,1.,1.,1.);
+				col += .5*saturate(col + .2)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*50.), r2d(-.5))*fixed2(1.0, 0.1)*1.).x, 15.)*fixed4(1., 1., 1., 1.);
 
                 return col;
             }
