@@ -74,7 +74,7 @@ public class LevelService : MonoBehaviour
             candle.transform.position = new Vector3((float)(TileCount / 2), candle.transform.position.y, candle.transform.position.z);
             _landscapeObjects.Add(candle);
         }
-        if (Mathf.Repeat(Time.realtimeSinceStartup * Speed + 1.0f, 5.0f) + Random.Range(0f, 0.5f) < 0.1 && CloseBuildingPrefabs != null && CloseBuildingPrefabs.Count > 0)
+        if ((Mathf.Repeat(Time.realtimeSinceStartup * Speed+Random.Range(0f, 0.5f), 5.0f)) < 0.005 && CloseBuildingPrefabs != null && CloseBuildingPrefabs.Count > 0)
         {
 
             var candle = GameObject.Instantiate(CloseBuildingPrefabs[Random.Range(0, CloseBuildingPrefabs.Count)], GroundTilesHolder.transform);
