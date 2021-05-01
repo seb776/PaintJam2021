@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float BlinkSpeed = .05f;
     public float InvicibleTime = 2f;
     public int LifeNumber = 3;
+    public float SpeedLostOnDamage;
 
     public float JumpHeight;
     public float Inclinaison;
@@ -51,7 +52,7 @@ public class PlayerScript : MonoBehaviour
         {
             CanDie = false;
             LifeNumber--;
-            AppSingleton.Instance.LevelService.Speed = AppSingleton.Instance.LevelService.Speed / 2;
+            AppSingleton.Instance.LevelService.Speed = AppSingleton.Instance.LevelService.Speed * (1 - SpeedLostOnDamage);
             if (LifeNumber < 1) gameObject.SetActive(false); // TODO : make better game over
             StartCoroutine(Invulnerability());
         }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using VectorSwizzle;
 
 public class LevelService : MonoBehaviour
 {
@@ -31,8 +30,11 @@ public class LevelService : MonoBehaviour
     public List<GameObject> CloseBuildingPrefabs;
     public int TileCount;
 
+    public int Score;
+
     void Start()
     {
+        Score = 0;
         _landscapeObjects = new List<GameObject>();
         _currentGroundTiles = new List<GameObject>();
 
@@ -70,6 +72,8 @@ public class LevelService : MonoBehaviour
                     }
                 }
                 _currentGroundTiles.Add(go);
+                Score++;
+                Debug.Log(Score);
             }
         }
 

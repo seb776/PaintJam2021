@@ -228,14 +228,16 @@ MonoBehaviour:
   BodyParts:
   - {fileID: 2970020183369350146}
   - {fileID: 2970020182491422134}
+  - {fileID: 685653107418181061}
   BlinkSpeed: 0.05
   InvicibleTime: 2
-  LifeNumber: 3
-  JumpHeight: 0
-  Inclinaison: 0
-  HightSpeedGap: 0
-  JumpHeightHightSpeed: 0
-  InclinaisonHighSpeed: 0
+  LifeNumber: 10
+  SpeedLostOnDamage: 0.1
+  JumpHeight: 9
+  Inclinaison: 2
+  HightSpeedGap: 0.9
+  JumpHeightHightSpeed: 12
+  InclinaisonHighSpeed: 40
 --- !u!54 &2970020181645859672
 Rigidbody:
   m_ObjectHideFlags: 0

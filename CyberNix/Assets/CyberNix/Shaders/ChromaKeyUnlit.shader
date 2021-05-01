@@ -11,6 +11,7 @@ Shader "Unlit/ChromaKeyUnlit"
     {
         Tags { "RenderType"="Transparent" "Queue"="Transparent" }
         LOD 100
+        ZWrite On
 		Blend SrcAlpha OneMinusSrcAlpha
         
 		Pass
