@@ -11,12 +11,13 @@ public class LevelService : MonoBehaviour
 
     public GameObject LevelInstances; // holds object seen in the camera frame
     public float Speed;
+    public float JumpHeight;
     public float DepthValue; // The distance for each "depth" count
     public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
     public List<GameObject> Prefabs;
 
-    public GameObject Player;
+    public PlayerScript Player;
     private int CurrentPlayerDepth;
 
     private List<GameObject> _currentGroundTiles;
@@ -52,11 +53,11 @@ public class LevelService : MonoBehaviour
                 }
                 if (Random.Range(0f, 1f) < ObstacleSpawnChance)
                 {
-                    var futurePrefab = Prefabs[0];
-                    var size = Random.Range(0.1f, DepthValue);
-                    futurePrefab.transform.localScale = new Vector3(size, futurePrefab.transform.localScale.x, futurePrefab.transform.localScale.z); // TODO : scale with DepthValue and maxDephValue
-                    futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, Random.Range(-0.5f, 0.5f), futurePrefab.transform.position.z); 
-                    GameObject.Instantiate(Prefabs[0], go.transform);
+                    if (Prefabs.Count > 0)
+                    {
+                        var futurePrefab = GameObject.Instantiate(Prefabs[0], go.transform);
+                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(-1, 4) * DepthValue);
+                    }
                 }
                 _currentGroundTiles.Add(go);
                 break;
@@ -75,6 +76,10 @@ public class LevelService : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             CurrentPlayerDepth++;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < 0.51)
+        {
+            Player.Jump(JumpHeight);
         }
         var res = CurrentPlayerDepth * DepthValue;
         var pos = Player.transform.position;
