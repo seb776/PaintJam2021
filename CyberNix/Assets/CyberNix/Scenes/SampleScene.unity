@@ -844,6 +844,8 @@ MonoBehaviour:
   Speed: 3
   Acceleration: 1
   MaxSpeed: 20
+  MinPitch: 0.8
+  MaxPitch: 1.5
   DepthValue: 1.5
   ObstacleSpawnChance: 0.15
   DepthCount: 4

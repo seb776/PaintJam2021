@@ -13,6 +13,8 @@ public class LevelService : MonoBehaviour
     public float Speed;
     public float Acceleration;
     public float MaxSpeed;
+    public float MinPitch;
+    public float MaxPitch;
     public float DepthValue; // The distance for each "depth" count
     public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
@@ -105,7 +107,7 @@ public class LevelService : MonoBehaviour
         _handleTiles();
         GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
         if(Speed < MaxSpeed) Speed += Acceleration * Time.deltaTime;
-        Music.pitch = Mathf.Lerp(1, 2.5f, Speed / 30);
+        Music.pitch = Mathf.Lerp(1, MaxPitch, Speed / MaxSpeed);
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(CurrentPlayerDepth > 0) CurrentPlayerDepth--;
