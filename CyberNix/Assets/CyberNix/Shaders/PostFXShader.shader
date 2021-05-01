@@ -124,7 +124,7 @@ Shader "Unlit/PostFXShader"
 				col = pixelize(uv);
 
 				half2 ps = half2(1.0, 1.0) / half2(_MainTex_TexelSize.z, _MainTex_TexelSize.w);
-				col = fixed4(Bloom(uv, _Threshold, _Radius, _Intensity, ps),col.w);
+				col = fixed4(Bloom(puv, _Threshold, _Radius, _Intensity, ps),col.w);
 
                 return col;
             }

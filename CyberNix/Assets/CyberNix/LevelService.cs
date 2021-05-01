@@ -124,7 +124,8 @@ public class LevelService : MonoBehaviour
             float fplane = 1.0f;
             foreach (var back in BackgroundPlanes)
             {
-                back.GetComponent<MeshRenderer>().material.SetVector("_MainTex_ST", new Vector4(2.0f, 1.0f, Time.realtimeSinceStartup * Speed*0.025f*fplane));
+                var backmat = back.GetComponent<MeshRenderer>().material;
+                backmat.SetVector("_MainTex_ST", new Vector4(2.0f, 1.0f, backmat.GetVector("_MainTex_ST").z + 0.025f*Time.deltaTime*Speed*fplane));
                 fplane += 1.0f;
             }
         }
