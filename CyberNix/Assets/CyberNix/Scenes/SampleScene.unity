@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1444929639}
     m_Modifications:
+    - target: {fileID: 329717225906154623, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 329717225906154623, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.49
+      objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859653, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -178,6 +186,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: BodyParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: BodyParts.Array.data[2]
+      value: 
+      objectReference: {fileID: 2075674373}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
 --- !u!4 &201381384 stripped
@@ -908,3 +924,8 @@ Transform:
   m_Father: {fileID: 1444929639}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2075674373 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 685653107418181061, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+  m_PrefabInstance: {fileID: 201381383}
+  m_PrefabAsset: {fileID: 0}
