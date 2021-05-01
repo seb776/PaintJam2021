@@ -12,7 +12,9 @@ public class LevelService : MonoBehaviour
     public GameObject LevelInstances; // holds object seen in the camera frame
     public float Speed;
     public float DepthValue; // The distance for each "depth" count
+    public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
+    public List<GameObject> Prefabs;
 
     public GameObject Player;
     private int CurrentPlayerDepth;
@@ -30,7 +32,7 @@ public class LevelService : MonoBehaviour
             var tileObj = GameObject.Instantiate(GroundTilePrefab, GroundTilesHolder.transform);
             var pos = tileObj.transform.position;
             tileObj.transform.position = new Vector3(f, pos.y, pos.z);
-            float color = Mathf.Lerp(0.5f, 0.7f, Mathf.Repeat((float)i, 2.0f)); ;
+            float color = Mathf.Lerp(0.5f, 0.7f, Mathf.Repeat((float)i, 2.0f));
             tileObj.gameObject.GetComponent<MeshRenderer>().material.color = new Color(color, color, color);
             _currentGroundTiles.Add(tileObj);
         }
@@ -44,6 +46,18 @@ public class LevelService : MonoBehaviour
             {
                 _currentGroundTiles.Remove(go);
                 go.transform.position = _currentGroundTiles.Last().transform.position + Vector3.right;
+                foreach(Transform child in go.transform) // clean child of actual tile
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+                if (Random.Range(0f, 1f) < ObstacleSpawnChance)
+                {
+                    var futurePrefab = Prefabs[0];
+                    var size = Random.Range(0.1f, DepthValue);
+                    futurePrefab.transform.localScale = new Vector3(size, futurePrefab.transform.localScale.x, futurePrefab.transform.localScale.z); // TODO : scale with DepthValue and maxDephValue
+                    futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, Random.Range(-0.5f, 0.5f), futurePrefab.transform.position.z); 
+                    GameObject.Instantiate(Prefabs[0], go.transform);
+                }
                 _currentGroundTiles.Add(go);
                 break;
             }
