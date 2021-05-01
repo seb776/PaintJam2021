@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerMat
+  m_Name: PlayerPlayer
   m_Shader: {fileID: 4800000, guid: 3cb16efad53850b4499468e34ab2c46e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c7917c4b97e109546a11984ee5f8deae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 87c337c23d64c7e4091a934543a79fc0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -74,7 +74,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _ChromaKey: {r: 0.24705884, g: 0.28627452, b: 0.7960785, a: 1}
+    - _ChromaKey: {r: 0.12941177, g: 0.6901961, b: 0.3019608, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
