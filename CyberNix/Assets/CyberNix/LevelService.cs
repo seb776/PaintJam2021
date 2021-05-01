@@ -21,10 +21,14 @@ public class LevelService : MonoBehaviour
     private int CurrentPlayerDepth;
 
     private List<GameObject> _currentGroundTiles;
+    private List<GameObject> _landscapeObjects;
+    public GameObject CandlePrefab;
+    public List<GameObject> CloseBuildingPrefabs;
     public int TileCount;
 
     void Start()
     {
+        _landscapeObjects = new List<GameObject>();
         _currentGroundTiles = new List<GameObject>();
 
         for (int i = 0; i < TileCount; ++i)
@@ -62,6 +66,34 @@ public class LevelService : MonoBehaviour
                 _currentGroundTiles.Add(go);
                 break;
             }
+        }
+
+        if (Mathf.Repeat(Time.realtimeSinceStartup*Speed,5.0f) + Random.Range(0f, 0.5f) < 0.1)
+        {
+            var candle = GameObject.Instantiate(CandlePrefab, GroundTilesHolder.transform);
+            candle.transform.position = new Vector3((float)(TileCount / 2), candle.transform.position.y, candle.transform.position.z);
+            _landscapeObjects.Add(candle);
+        }
+        if (Mathf.Repeat(Time.realtimeSinceStartup * Speed+1.0f, 5.0f) + Random.Range(0f, 0.5f) < 0.1 && CloseBuildingPrefabs != null && CloseBuildingPrefabs.Count > 0)
+        {
+
+            var candle = GameObject.Instantiate(CloseBuildingPrefabs[Random.Range(0, CloseBuildingPrefabs.Count)], GroundTilesHolder.transform);
+            candle.transform.position = new Vector3((float)(TileCount / 2), candle.transform.position.y, candle.transform.position.z);
+            _landscapeObjects.Add(candle);
+        }
+
+        List<GameObject> toRemoveLandscape = new List<GameObject>();
+        foreach (var go in _landscapeObjects)
+        {
+            if (go.transform.position.x < -(TileCount / 2)) // if is too left)
+            {
+                toRemoveLandscape.Add(go);
+            }
+        }
+        foreach (var toRem in toRemoveLandscape)
+        {
+            Destroy(toRem);
+            _landscapeObjects.Remove(toRem);
         }
     }
 
