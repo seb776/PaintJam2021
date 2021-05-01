@@ -5,6 +5,7 @@ Shader "Unlit/ChromaKeyUnlit"
         _MainTex ("Texture", 2D) = "white" {}
 		_ChromaKey("Chroma key", Color) = (1.0,0.0,0.0,1.0)
 		_Threshold("Threshold", Range(0,1)) = 0.5
+		_ColorShade("Color", Color) = (1.0,1.0,1.0,1.0)
     }
     SubShader
     {
@@ -38,6 +39,7 @@ Shader "Unlit/ChromaKeyUnlit"
             sampler2D _MainTex;
             float4 _MainTex_ST;
 			float4 _ChromaKey;
+			float4 _ColorShade;
 			float _Threshold;
 
             v2f vert (appdata v)
@@ -59,7 +61,7 @@ Shader "Unlit/ChromaKeyUnlit"
 				if (length(col.xyz - _ChromaKey.xyz) < _Threshold)
 					return fixed4(col.xyz, 0.0);
 
-                return col;
+                return fixed4(col.xyz * _ColorShade, 1.0);
             }
             ENDCG
         }
