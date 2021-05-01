@@ -60,7 +60,7 @@ public class LevelService : MonoBehaviour
                     if (Prefabs.Count > 0)
                     {
                         var futurePrefab = GameObject.Instantiate(Prefabs[0], go.transform);
-                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(-1, 4) * DepthValue);
+                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(-1, 3) * DepthValue);
                     }
                 }
                 _currentGroundTiles.Add(go);

@@ -48,6 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 2970020181645859672}
+  BodyParts:
+  - {fileID: 2970020183369350146}
+  - {fileID: 2970020182491422134}
+  BlinkSpeed: 0.05
+  InvicibleTime: 2
 --- !u!54 &2970020181645859672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90,7 +95,7 @@ GameObject:
   - component: {fileID: 2970020182491422134}
   - component: {fileID: 2970020182491422132}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Vehicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +192,7 @@ GameObject:
   - component: {fileID: 2970020183369350146}
   - component: {fileID: 2970020183369350144}
   m_Layer: 0
-  m_Name: Quad (1)
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
