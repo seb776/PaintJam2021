@@ -705,12 +705,13 @@ MonoBehaviour:
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
   LevelInstances: {fileID: 1444929638}
   Speed: 10
-  JumpHeight: 6
+  JumpHeight: 9
   DepthValue: 1.5
   ObstacleSpawnChance: 0.15
   DepthCount: 4
   Prefabs:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
+  - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}
   Player: {fileID: 201381385}
   CandlePrefab: {fileID: 844675115007952609, guid: 1d86a16d7c5130d418114c8bfe49f9c1, type: 3}
   CloseBuildingPrefabs:

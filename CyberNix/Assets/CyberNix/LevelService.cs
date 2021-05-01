@@ -59,7 +59,7 @@ public class LevelService : MonoBehaviour
                 {
                     if (Prefabs.Count > 0)
                     {
-                        var futurePrefab = GameObject.Instantiate(Prefabs[0], go.transform);
+                        var futurePrefab = GameObject.Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], go.transform);
                         futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(0, DepthCount) * DepthValue);
                     }
                 }
@@ -109,7 +109,7 @@ public class LevelService : MonoBehaviour
         {
             if(CurrentPlayerDepth < DepthCount - 1) CurrentPlayerDepth++;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < 0.51)
+        if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < .66f)
         {
             Player.Jump(JumpHeight);
         }
