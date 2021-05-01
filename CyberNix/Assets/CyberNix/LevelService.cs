@@ -47,11 +47,11 @@ public class LevelService : MonoBehaviour
     {
         foreach (var go in _currentGroundTiles)
         {
-            if (go.transform.position.x < -(TileCount/2)) // if a tile is too left
+            if (go.transform.position.x < -(TileCount / 2)) // if a tile is too left
             {
                 _currentGroundTiles.Remove(go);
                 go.transform.position = _currentGroundTiles.Last().transform.position + Vector3.right;
-                foreach(Transform child in go.transform) // clean child of actual tile
+                foreach (Transform child in go.transform) // clean child of actual tile
                 {
                     GameObject.Destroy(child.gameObject);
                 }
@@ -68,13 +68,13 @@ public class LevelService : MonoBehaviour
             }
         }
 
-        if (Mathf.Repeat(Time.realtimeSinceStartup*Speed,5.0f) + Random.Range(0f, 0.5f) < 0.1)
+        if (Mathf.Repeat(Time.realtimeSinceStartup * Speed, 5.0f) + Random.Range(0f, 0.5f) < 0.1)
         {
             var candle = GameObject.Instantiate(CandlePrefab, GroundTilesHolder.transform);
             candle.transform.position = new Vector3((float)(TileCount / 2), candle.transform.position.y, candle.transform.position.z);
             _landscapeObjects.Add(candle);
         }
-        if (Mathf.Repeat(Time.realtimeSinceStartup * Speed+1.0f, 5.0f) + Random.Range(0f, 0.5f) < 0.1 && CloseBuildingPrefabs != null && CloseBuildingPrefabs.Count > 0)
+        if (Mathf.Repeat(Time.realtimeSinceStartup * Speed + 1.0f, 5.0f) + Random.Range(0f, 0.5f) < 0.1 && CloseBuildingPrefabs != null && CloseBuildingPrefabs.Count > 0)
         {
 
             var candle = GameObject.Instantiate(CloseBuildingPrefabs[Random.Range(0, CloseBuildingPrefabs.Count)], GroundTilesHolder.transform);
@@ -96,7 +96,7 @@ public class LevelService : MonoBehaviour
             _landscapeObjects.Remove(toRem);
         }
     }
-
+    public List<GameObject> BackgroundPlanes;
     void Update()
     {
         _handleTiles();
@@ -116,5 +116,16 @@ public class LevelService : MonoBehaviour
         var res = CurrentPlayerDepth * DepthValue;
         var pos = Player.transform.position;
         Player.transform.position = new Vector3(pos.x, pos.y, res);
+
+        // BackgroundPlanesScroll
+        if (BackgroundPlanes != null)
+        {
+            float fplane = 1.0f;
+            foreach (var back in BackgroundPlanes)
+            {
+                back.GetComponent<MeshRenderer>().material.SetVector("_MainTex_ST", new Vector4(2.0f, 1.0f, Time.realtimeSinceStartup * Speed*0.025f*fplane));
+                fplane += 1.0f;
+            }
+        }
     }
 }
