@@ -15,6 +15,8 @@ public class LevelService : MonoBehaviour
     public float DepthValue; // The distance for each "depth" count
     public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
+    public float Acceleration;
+    public float MaxSpeed;
     public List<GameObject> Prefabs;
 
     public PlayerScript Player;
@@ -45,7 +47,8 @@ public class LevelService : MonoBehaviour
 
     private void _handleTiles()
     {
-        foreach (var go in _currentGroundTiles)
+        List<GameObject> tmpGround = new List<GameObject>(_currentGroundTiles);
+        foreach (var go in tmpGround)
         {
             if (go.transform.position.x < -(TileCount / 2)) // if a tile is too left
             {
@@ -64,7 +67,6 @@ public class LevelService : MonoBehaviour
                     }
                 }
                 _currentGroundTiles.Add(go);
-                break;
             }
         }
 
@@ -85,7 +87,7 @@ public class LevelService : MonoBehaviour
         List<GameObject> toRemoveLandscape = new List<GameObject>();
         foreach (var go in _landscapeObjects)
         {
-            if (go.transform.position.x < -(TileCount / 2)) // if is too left)
+            if (go.transform.position.x < -(TileCount / 2)) // if is too left
             {
                 toRemoveLandscape.Add(go);
             }
@@ -101,6 +103,7 @@ public class LevelService : MonoBehaviour
     {
         _handleTiles();
         GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
+        if(Speed < MaxSpeed) Speed += Acceleration * Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(CurrentPlayerDepth > 0) CurrentPlayerDepth--;
@@ -113,10 +116,7 @@ public class LevelService : MonoBehaviour
         {
             Player.Jump(JumpHeight);
         }
-        Debug.Log(CurrentPlayerDepth);
-        var res = CurrentPlayerDepth * DepthValue;
-        var pos = Player.transform.position;
-        Player.transform.position = new Vector3(pos.x, pos.y, res);
+        Player.MoveAt(CurrentPlayerDepth * DepthValue);
 
         // BackgroundPlanesScroll
         if (BackgroundPlanes != null)

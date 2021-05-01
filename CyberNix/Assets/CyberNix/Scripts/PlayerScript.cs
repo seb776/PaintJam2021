@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public MeshRenderer[] BodyParts;
     public float BlinkSpeed = .05f;
     public float InvicibleTime = 2f;
+    public int LifeNumber = 3;
 
     private bool CanDie;
 
@@ -15,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         CanDie = true;
+        if (LifeNumber < 1) LifeNumber = 1;
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class PlayerScript : MonoBehaviour
         if (CanDie)
         {
             CanDie = false;
+            LifeNumber--;
+            if (LifeNumber < 1) gameObject.SetActive(false); // TODO : make better game over
             StartCoroutine(Invulnerability());
         }
     }
@@ -53,5 +57,11 @@ public class PlayerScript : MonoBehaviour
     public void Jump(float JumpHeight)
     {
         Rigidbody.AddForce(Vector3.up * JumpHeight, ForceMode.VelocityChange);
+    }
+
+    public void MoveAt(float z)
+    {
+        var pos = transform.position;
+        transform.position = new Vector3(pos.x, pos.y, z);
     }
 }
