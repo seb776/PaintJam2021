@@ -11,12 +11,12 @@ public class LevelService : MonoBehaviour
 
     public GameObject LevelInstances; // holds object seen in the camera frame
     public float Speed;
-    public float JumpHeight;
+    public float Acceleration;
+    public float MaxSpeed;
     public float DepthValue; // The distance for each "depth" count
     public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
-    public float Acceleration;
-    public float MaxSpeed;
+    public float GroundTheshold;
     public List<GameObject> Prefabs;
 
     public PlayerScript Player;
@@ -112,9 +112,9 @@ public class LevelService : MonoBehaviour
         {
             if(CurrentPlayerDepth < DepthCount - 1) CurrentPlayerDepth++;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < .66f)
+        if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < GroundTheshold)
         {
-            Player.Jump(JumpHeight);
+            Player.Jump();
         }
         Player.MoveAt(CurrentPlayerDepth * DepthValue);
 

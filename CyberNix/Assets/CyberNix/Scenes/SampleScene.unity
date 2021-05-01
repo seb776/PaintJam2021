@@ -187,8 +187,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: JumpHeight
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: LifeNumber
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: Inclinaison
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: HightSpeedGap
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: BodyParts.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: InclinaisonHighSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: JumpHeightHightSpeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: BodyParts.Array.data[2]
@@ -721,10 +745,12 @@ MonoBehaviour:
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
   LevelInstances: {fileID: 1444929638}
   Speed: 10
-  JumpHeight: 9
+  Acceleration: 1
+  MaxSpeed: 20
   DepthValue: 1.5
   ObstacleSpawnChance: 0.15
   DepthCount: 4
+  GroundTheshold: 0.85
   Prefabs:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
   - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}

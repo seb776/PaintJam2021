@@ -10,6 +10,12 @@ public class PlayerScript : MonoBehaviour
     public float InvicibleTime = 2f;
     public int LifeNumber = 3;
 
+    public float JumpHeight;
+    public float Inclinaison;
+    public float HightSpeedGap;
+    public float JumpHeightHightSpeed;
+    public float InclinaisonHighSpeed;
+
     private bool CanDie;
 
     // Start is called before the first frame update
@@ -22,7 +28,21 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y > AppSingleton.Instance.LevelService.GroundTheshold)
+        {
+            if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
+            {
+                if (AppSingleton.Instance.LevelService.Speed < AppSingleton.Instance.LevelService.MaxSpeed * HightSpeedGap)
+                {
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Rigidbody.velocity.y * Inclinaison);
+                } else {
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Rigidbody.velocity.y * InclinaisonHighSpeed);
+                }
+            }
+        } else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         {
             CanDie = false;
             LifeNumber--;
+            AppSingleton.Instance.LevelService.Speed = AppSingleton.Instance.LevelService.Speed / 2;
             if (LifeNumber < 1) gameObject.SetActive(false); // TODO : make better game over
             StartCoroutine(Invulnerability());
         }
@@ -54,9 +75,17 @@ public class PlayerScript : MonoBehaviour
         CanDie = true;
     }
 
-    public void Jump(float JumpHeight)
+    public void Jump()
     {
-        Rigidbody.AddForce(Vector3.up * JumpHeight, ForceMode.VelocityChange);
+        if (AppSingleton.Instance.LevelService.Speed < AppSingleton.Instance.LevelService.MaxSpeed * HightSpeedGap)
+        {
+            Rigidbody.AddForce(Vector3.up * JumpHeight, ForceMode.VelocityChange);
+        }
+        else
+        {
+            Rigidbody.AddForce(Vector3.up * JumpHeightHightSpeed, ForceMode.VelocityChange);
+        }
+        
     }
 
     public void MoveAt(float z)
