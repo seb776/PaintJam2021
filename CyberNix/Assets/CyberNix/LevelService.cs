@@ -17,6 +17,7 @@ public class LevelService : MonoBehaviour
     public float ObstacleSpawnChance = 0.15f;
     public int DepthCount;
     public float GroundTheshold;
+    public AudioSource Music;
     public List<GameObject> Prefabs;
 
     public PlayerScript Player;
@@ -104,6 +105,7 @@ public class LevelService : MonoBehaviour
         _handleTiles();
         GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
         if(Speed < MaxSpeed) Speed += Acceleration * Time.deltaTime;
+        Music.pitch = Mathf.Lerp(1, 2.5f, Speed / 30);
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(CurrentPlayerDepth > 0) CurrentPlayerDepth--;

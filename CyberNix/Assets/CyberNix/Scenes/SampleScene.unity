@@ -841,13 +841,14 @@ MonoBehaviour:
   GroundTilesHolder: {fileID: 1709897267}
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
   LevelInstances: {fileID: 1444929638}
-  Speed: 10
+  Speed: 3
   Acceleration: 1
   MaxSpeed: 20
   DepthValue: 1.5
   ObstacleSpawnChance: 0.15
   DepthCount: 4
   GroundTheshold: 0.85
+  Music: {fileID: 963194230}
   Prefabs:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
   - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}
