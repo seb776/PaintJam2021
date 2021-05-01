@@ -8,6 +8,8 @@ Shader "Unlit/PostFXShader"
 		_Threshold("Threshold", Range(0,1)) = 0.5 // Bloom options
 		_Radius("Radius", Range(1,500)) = 1
 		_Intensity("Intensity", Range(0,1)) = 0.5
+
+		_NoiseTex("Noise", 2D) = "white" {}
     }
     SubShader
     {
@@ -37,7 +39,8 @@ Shader "Unlit/PostFXShader"
                 float4 vertex : SV_POSITION;
             };
 
-            sampler2D _MainTex;
+			sampler2D _NoiseTex;
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float4 _MainTex_TexelSize;
 			float _PixelSize;
@@ -111,7 +114,7 @@ Shader "Unlit/PostFXShader"
 				fixed4 col = tex2D(_MainTex, puv);
 				return col;
 			}
-
+			float2x2 r2d(float a) { float cosa = cos(a); float sina = sin(a); return float2x2(cosa, -sina, sina, cosa); }
             fixed4 frag (v2f i) : SV_Target
             {
 				fixed2 uv = i.uv;
@@ -121,10 +124,13 @@ Shader "Unlit/PostFXShader"
 				fixed4 col = tex2D(_MainTex, uv);
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
-				col = pixelize(uv);
+				//col = pixelize(uv);
 
 				half2 ps = half2(1.0, 1.0) / half2(_MainTex_TexelSize.z, _MainTex_TexelSize.w);
 				col = fixed4(Bloom(puv, _Threshold, _Radius, _Intensity, ps),col.w);
+
+				col += .25*saturate(col+.1)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*20.), r2d(-.5))*fixed2(1.0+sin(_Time.x*5.+uv.y*15.)*.0002, 0.1)*2.).x,15.)*fixed4(1.,1.,1.,1.);
+				col += .5*saturate(col + .1)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*50.), r2d(-.5))*fixed2(1.0 + sin(_Time.x*5. + uv.y*15.)*.0002, 0.1)*1.).x, 15.)*fixed4(1., 1., 1., 1.);
 
                 return col;
             }
