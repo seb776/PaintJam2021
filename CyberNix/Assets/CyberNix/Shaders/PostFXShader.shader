@@ -47,15 +47,25 @@ Shader "Unlit/PostFXShader"
                 return o;
             }
 
+			fixed4 pixelize(fixed2 uv)
+			{
+				float pxs = _PixelSize;
+				fixed2 px = fixed2(pxs, pxs)*(_MainTex_TexelSize.zz) / _MainTex_TexelSize.zw;
+				fixed2 puv = floor(uv / px)*px;
+				fixed4 col = tex2D(_MainTex, puv);
+				return col;
+			}
+
             fixed4 frag (v2f i) : SV_Target
             {
 				fixed2 uv = i.uv;
 				float pxs = _PixelSize;
 				fixed2 px = fixed2(pxs, pxs)*(_MainTex_TexelSize.zz) / _MainTex_TexelSize.zw;
 				fixed2 puv = floor(uv / px)*px;
-                fixed4 col = lerp(tex2D(_MainTex, uv), tex2D(_MainTex, puv), saturate(length(uv-fixed2(0.5,0.5))));
+				fixed4 col = tex2D(_MainTex, uv);
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
+				col = pixelize(uv);
 
                 return col;
             }
