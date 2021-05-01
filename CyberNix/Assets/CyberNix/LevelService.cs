@@ -60,7 +60,7 @@ public class LevelService : MonoBehaviour
                     if (Prefabs.Count > 0)
                     {
                         var futurePrefab = GameObject.Instantiate(Prefabs[0], go.transform);
-                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(-1, 3) * DepthValue);
+                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(0, DepthCount) * DepthValue);
                     }
                 }
                 _currentGroundTiles.Add(go);
@@ -103,16 +103,17 @@ public class LevelService : MonoBehaviour
         GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            CurrentPlayerDepth--;
+            if(CurrentPlayerDepth > 0) CurrentPlayerDepth--;
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            CurrentPlayerDepth++;
+            if(CurrentPlayerDepth < DepthCount - 1) CurrentPlayerDepth++;
         }
         if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < 0.51)
         {
             Player.Jump(JumpHeight);
         }
+        Debug.Log(CurrentPlayerDepth);
         var res = CurrentPlayerDepth * DepthValue;
         var pos = Player.transform.position;
         Player.transform.position = new Vector3(pos.x, pos.y, res);
