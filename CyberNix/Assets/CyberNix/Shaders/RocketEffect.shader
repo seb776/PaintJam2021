@@ -1,19 +1,16 @@
-Shader "Unlit/ChromaKeyUnlit"
+Shader "Unlit/RocketEffect"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-		_ChromaKey("Chroma key", Color) = (1.0,0.0,0.0,1.0)
-		_Threshold("Threshold", Range(0,1)) = 0.5
-		_ColorShade("Color", Color) = (1.0,1.0,1.0,1.0)
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" "Queue"="Transparent" }
         LOD 100
 		Blend SrcAlpha OneMinusSrcAlpha
-        
-		Pass
+
+        Pass
         {
             CGPROGRAM
             #pragma vertex vert
@@ -38,9 +35,6 @@ Shader "Unlit/ChromaKeyUnlit"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-			float4 _ChromaKey;
-			float4 _ColorShade;
-			float _Threshold;
 
             v2f vert (appdata v)
             {
@@ -51,17 +45,39 @@ Shader "Unlit/ChromaKeyUnlit"
                 return o;
             }
 
+			float _cir(fixed2 uv, float r)
+			{
+				return length(uv) - r;
+			}
+
+			fixed4 BRRRR(fixed2 uv, float shp)
+			{
+				float acc = 100.;
+
+				acc = min(acc, _cir(uv, .25));
+
+				for (int i = 0; i < 30; ++i)
+				{
+					float f = float(i);
+					float s = lerp(0.05,0.2, sin(f)*.5+.5);
+					fixed2 dir = fixed2(fmod(_Time.x*70.+f+sin(f), 0.5), sin(f)*.1*abs(uv.x));
+					acc = min(acc, _cir(uv + dir,s));
+				}
+				
+				return saturate(fixed4(fixed3(227, 43, 62)/255., 1. - saturate(acc*shp)));
+			}
+
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 col = fixed4(0.,0.,0.,0.);// tex2D(_MainTex, i.uv);
+				col = BRRRR(i.uv-fixed2(1.0,0.5),400.);
+				fixed4 white = BRRRR(2.*(i.uv - fixed2(1.0, 0.5)),10.).xxxw;
+				col += fixed4(fixed3(1.,1.,1.)*white.w*.25, col.w);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
 
-				if (length(col.xyz - _ChromaKey.xyz) < _Threshold)
-					return fixed4(col.xyz, 0.0);
-
-                return fixed4(col.xyz * _ColorShade, 1.0);
+                return col;
             }
             ENDCG
         }
