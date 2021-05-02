@@ -2296,7 +2296,7 @@ MonoBehaviour:
   ScoreOnHealth: 20
   ScoreOnBoss: 150
   ScoreByTilePassed: 1
-  StartPhase: 0
+  StartPhase: 3
   WaveBeforeBoss: 1
   MobsAtSameTime: 4
   MobsTotalNumbers: 15
@@ -2359,6 +2359,7 @@ MonoBehaviour:
   ReceiveDamage: {fileID: 8300000, guid: eff664d89eecdfa45804c73c3deb49ec, type: 3}
   Jump: {fileID: 8300000, guid: 751f687320e1d804ab87bc3be75300d1, type: 3}
   CassouletPresentation: {fileID: 8300000, guid: 86674b7d935716b4082da64ea77957a4, type: 3}
+  CassouletDie: {fileID: 8300000, guid: 1d38ccc09716c9f4984ca6557cb45aab, type: 3}
   SoundHolder: {fileID: 1973244960}
   PrefabSound: {fileID: 8614980691929198576, guid: 75b75dba5951f4842bf6105c77f14612, type: 3}
 --- !u!1 &1235997655
