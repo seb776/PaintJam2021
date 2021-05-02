@@ -504,7 +504,7 @@ MonoBehaviour:
   LifeBar: {fileID: 5535014793600706452}
   CommingSpeed: 5
   XStopPos: 5
-  LifeNumber: 5
+  LifeNumber: 15
 --- !u!65 &2140982255023808041
 BoxCollider:
   m_ObjectHideFlags: 0
