@@ -102,8 +102,8 @@ public class Cassoulax : MonoBehaviour
             {
                 var gainPoint = GameObject.Instantiate(_Level.GaindPointPrefab, _Level.GroundTilesHolder.transform);
                 var scriptPoint = gainPoint.GetComponent<GainPoint>();
-                scriptPoint.Gain(_Level.ScoreOnKill);
                 gainPoint.transform.position = gameObject.transform.position;
+                scriptPoint.Gain(_Level.ScoreOnKill);
                 gameObject.SetActive(false);
             }
         }

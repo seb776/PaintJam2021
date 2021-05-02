@@ -2293,6 +2293,7 @@ MonoBehaviour:
   Score: 0
   ScoreMobsSpawn: 500
   ScoreOnKill: 10
+  ScoreOnHealth: 20
   ScoreOnBoss: 150
   ScoreByTilePassed: 1
   StartPhase: 0

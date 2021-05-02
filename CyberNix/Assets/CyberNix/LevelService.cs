@@ -37,6 +37,7 @@ public class LevelService : MonoBehaviour
     public int Score;
     public int ScoreMobsSpawn;
     public int ScoreOnKill;
+    public int ScoreOnHealth;
     public int ScoreOnBoss;
     public int ScoreByTilePassed;
     public int StartPhase;

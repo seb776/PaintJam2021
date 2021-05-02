@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject EndGameScreen;
 
+    private LevelService _Level { get { return AppSingleton.Instance.LevelService; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,19 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.layer == 11)
         {
             LifeNumber += 1;
-            if (LifeNumber > _maxLife) LifeNumber = _maxLife;
+            int gainCount = 0;
+            if (LifeNumber > _maxLife)
+            {
+                gainCount = _Level.ScoreOnHealth;
+                LifeNumber = _maxLife;
+                _Level.Score += _Level.ScoreOnHealth;
+            }
+
+            var gainPoint = GameObject.Instantiate(_Level.GaindPointPrefab, _Level.GroundTilesHolder.transform);
+            var scriptPoint = gainPoint.GetComponent<GainPoint>();
+            gainPoint.transform.position = other.gameObject.transform.position;
+            scriptPoint.Gain(gainCount);
+
             Destroy(other.gameObject);
         }
         else
@@ -92,7 +106,7 @@ public class PlayerScript : MonoBehaviour
             if (LifeNumber < 1)
             {
                 GameOver = true;
-                gameObject.SetActive(false); // TODO : make better game over
+                gameObject.SetActive(false);
                 EndGameScreen.SetActive(true);
             }
             StartCoroutine(Invulnerability());
