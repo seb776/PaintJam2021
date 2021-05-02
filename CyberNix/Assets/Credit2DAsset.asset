@@ -88,7 +88,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Ambient: 0.547
-    - _Bevel: 0.776
+    - _Bevel: 0.309
     - _BevelClamp: 0
     - _BevelOffset: 0.5
     - _BevelRoundness: 1
@@ -141,13 +141,13 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 0.6179246, g: 0.69569296, b: 1, a: 1}
+    - _FaceColor: {r: 0.23113209, g: 0.38173497, b: 1, a: 1}
     - _GlowColor: {r: 0.08018869, g: 1, b: 0.9760739, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.28773582, g: 0.49339476, b: 1, a: 1}
+    - _OutlineColor: {r: 0.17501779, g: 0.17524177, b: 0.5377358, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecularColor: {r: 1, g: 0.8691486, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 0, b: 0.51870775, a: 1}
     - _UnderlayColor: {r: 1, g: 0.8135681, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: MenuPixel2D
+  m_Name: Credit2DAsset
   m_EditorClassIdentifier: 
-  hashCode: 5245389
+  hashCode: -1020945013
   material: {fileID: -378160936774222983}
-  materialHashCode: -689421619
+  materialHashCode: -856500149
   m_Version: 1.1.0
   m_SourceFontFileGUID: 7aff1c95877d62148bd1a8826ee0bd50
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 7aff1c95877d62148bd1a8826ee0bd50, type: 3}
