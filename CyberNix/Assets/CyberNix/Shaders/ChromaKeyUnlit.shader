@@ -62,7 +62,7 @@ Shader "Unlit/ChromaKeyUnlit"
 				if (length(col.xyz - _ChromaKey.xyz) < _Threshold)
 					return fixed4(col.xyz, 0.0);
 
-                return fixed4(col.xyz * _ColorShade, 1.0);
+                return fixed4(col.xyz, 1.0) * _ColorShade;
             }
             ENDCG
         }
