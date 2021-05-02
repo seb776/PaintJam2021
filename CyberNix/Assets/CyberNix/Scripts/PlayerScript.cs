@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
 
     private bool CanDie;
     private float _nextFireAfter;
+    private int _maxLife;
     public bool GameOver;
 
     public GameObject EndGameScreen;
@@ -30,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _maxLife = LifeNumber;
         _nextFireAfter = 0;
         GameOver = false;
         CanDie = true;
@@ -58,7 +60,17 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TookDamage();
+        Debug.Log(other.gameObject.layer);
+        if (other.gameObject.layer == 11)
+        {
+            LifeNumber += 1;
+            if (LifeNumber > _maxLife) LifeNumber = _maxLife;
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            TookDamage();
+        }
     }
 
     public void FireAt()

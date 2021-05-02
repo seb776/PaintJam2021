@@ -2274,7 +2274,7 @@ MonoBehaviour:
   MinPitch: 0.8
   MaxPitch: 1.65
   DepthValue: 1.5
-  ObstacleSpawnChance: 0.05
+  ObstacleSpawnChance: 0.09
   DepthCount: 4
   GroundTheshold: 0.85
   Music: {fileID: 963194230}
@@ -2282,6 +2282,12 @@ MonoBehaviour:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
   - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}
   - {fileID: 1923449187983440972, guid: dc1f745bece68cb4ab253398fdde3216, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
+  - {fileID: 1923449187983440972, guid: c5faf2cdd1334644987381b4f4489437, type: 3}
   ScoreText: {fileID: 2119490962}
   Player: {fileID: 201381385}
   CandlePrefab: {fileID: 844675115007952609, guid: 1d86a16d7c5130d418114c8bfe49f9c1, type: 3}
@@ -2293,7 +2299,7 @@ MonoBehaviour:
   ScoreOnKill: 10
   ScoreOnBoss: 150
   ScoreByTilePassed: 1
-  StartPhase: 1
+  StartPhase: 0
   WaveBeforeBoss: 1
   MobsAtSameTime: 4
   MobsTotalNumbers: 15
