@@ -2296,7 +2296,7 @@ MonoBehaviour:
   ScoreOnHealth: 20
   ScoreOnBoss: 150
   ScoreByTilePassed: 1
-  StartPhase: 3
+  StartPhase: 0
   WaveBeforeBoss: 1
   MobsAtSameTime: 4
   MobsTotalNumbers: 15
@@ -2307,6 +2307,64 @@ MonoBehaviour:
   MobsSpawnXMin: 3
   MobsSpawnXMax: 6
   MobSpawnChance: 0.05
+  FirstNames:
+  - Data
+  - Lynx
+  - Core
+  - Gadget
+  - Qwerty
+  - Spanner
+  - Grep
+  - Ram
+  - Cloud
+  - Wrench
+  - Cyber
+  - Awk
+  - Switch
+  - Byte
+  - Socket
+  - AI
+  - Fuzzy
+  - Ratchet
+  - Nix
+  - Hammer
+  - Sync
+  - Static
+  - Prism
+  - Slurm
+  - Drillbit
+  - Circuit
+  LastNames:
+  - Technician
+  - Multiplexor
+  - Emulator
+  - Kernel
+  - Processor
+  - Driver
+  - Simulator
+  - Algorithm
+  - Logic
+  - Network
+  - Scrambler
+  - Decoder
+  - Authenticator
+  - Automator
+  - Encryptor
+  - Matrix
+  - Archiver
+  - Encoder
+  - Serializer
+  - Parser
+  - Firewall
+  - Prototype
+  - Analyzer
+  - Compiler
+  - Compressor
+  - Extractor
+  NameColors:
+  - {r: 1, g: 0.3372549, b: 0.48627454, a: 0}
+  - {r: 0.48235297, g: 0.8117648, b: 0.9568628, a: 0}
+  - {r: 0.9960785, g: 0.54509807, b: 0.27058825, a: 0}
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}

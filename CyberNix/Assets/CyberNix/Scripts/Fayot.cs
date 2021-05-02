@@ -7,6 +7,8 @@ public class Fayot : MonoBehaviour
     public Rigidbody Projectile;
     public float TimeBetweenFire;
     public float Speed;
+    public TextMesh Text;
+
 
     private float _nextFire;
     private float _xStopPos;
@@ -16,6 +18,9 @@ public class Fayot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Text.text = AppSingleton.Instance.LevelService.GetName();
+        Text.color = AppSingleton.Instance.LevelService.NameColors[Random.Range(0, AppSingleton.Instance.LevelService.NameColors.Count)];
+        Text.color = new Color(Text.color.r, Text.color.g, Text.color.b, 1.0f);
         CanDie = false;
         _nextFire = 0;
         _xStopPos = Random.Range(AppSingleton.Instance.LevelService.MobsSpawnXMin, AppSingleton.Instance.LevelService.MobsSpawnXMax);

@@ -60,6 +60,15 @@ public class LevelService : MonoBehaviour
 
     private List<GameObject> _mobsAlive;
 
+    public List<string> FirstNames;
+    public List<string> LastNames;
+    public List<Color> NameColors;
+
+    public string GetName()
+    {
+        return $"{FirstNames[Random.Range(0, FirstNames.Count)]} {LastNames[Random.Range(0, LastNames.Count)]}".ToUpper();
+    }
+
     void Start()
     {
         Score = 0;

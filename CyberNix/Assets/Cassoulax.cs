@@ -10,6 +10,7 @@ public class Cassoulax : MonoBehaviour
     public List<GameObject> Projectiles;
     public float JumpHeight;
     public float CanJumpAtY;
+    public TextMesh Text;
 
     public float CommingSpeed;
     public float XStopPos;
@@ -23,6 +24,9 @@ public class Cassoulax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Text.text = AppSingleton.Instance.LevelService.GetName();
+        Text.color = AppSingleton.Instance.LevelService.NameColors[Random.Range(0, AppSingleton.Instance.LevelService.NameColors.Count)];
+        Text.color = new Color(Text.color.r, Text.color.g, Text.color.b, 1.0f);
         CanDie = false;
         _nextFire = 0;
         _currentPosition = transform.position.z / _Level.DepthValue;
