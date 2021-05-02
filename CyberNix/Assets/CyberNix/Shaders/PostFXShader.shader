@@ -115,6 +115,7 @@ Shader "Unlit/PostFXShader"
 				return col;
 			}
 			float2x2 r2d(float a) { float cosa = cos(a); float sina = sin(a); return float2x2(cosa, -sina, sina, cosa); }
+			float lenny(fixed2 v) { return abs(v.x) + abs(v.y); }
             fixed4 frag (v2f i) : SV_Target
             {
 				fixed2 uv = i.uv;
@@ -132,6 +133,7 @@ Shader "Unlit/PostFXShader"
 				col += .25*saturate(col+.2)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*20.), r2d(-.5))*fixed2(1.0, 0.1)*2.).x,15.)*fixed4(1.,1.,1.,1.);
 				col += .5*saturate(col + .2)*pow(tex2D(_NoiseTex, mul((i.uv + _Time.xx*50.), r2d(-.5))*fixed2(1.0, 0.1)*1.).x, 15.)*fixed4(1., 1., 1., 1.);
 
+				col += .25*(fixed4(240, 42, 81, 255) / 255.).yxzw*(1. - saturate(lenny(puv-fixed2(.5,.5))));
                 return col;
             }
             ENDCG
