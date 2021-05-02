@@ -43,6 +43,7 @@ public class LevelService : MonoBehaviour
     public List<GameObject> BasicEnnemies;
     public float MobsSpawnXMin;
     public float MobsSpawnXMax;
+    public float MobSpawnChance;
 
     private GameObject _waveOfThis;
     private int _mobsSpawnIn;
@@ -90,7 +91,7 @@ public class LevelService : MonoBehaviour
         {
             _phase = 0;
             _mobsSpawnIn = ScoreMobsSpawn;
-        } else if(_mobsAlive.Count < MobsAtSameTime)
+        } else if(_mobsAlive.Count < MobsAtSameTime && Random.Range(0f, 1f) < MobSpawnChance)
         {
             _mobsAlive.Add(SpawnOne(_waveOfThis));
         }
@@ -98,7 +99,7 @@ public class LevelService : MonoBehaviour
 
     private GameObject SpawnOne(GameObject toSpawn)
     {
-        return GameObject.Instantiate(toSpawn, new Vector3(Random.Range(MobsSpawnXMin, MobsSpawnXMax), toSpawn.transform.position.y, GetRandomLine()), toSpawn.transform.rotation);
+        return GameObject.Instantiate(toSpawn, new Vector3(-XLimit(), toSpawn.transform.position.y, GetRandomLine()), toSpawn.transform.rotation);
     }
 
     private void _mobsSpawner()

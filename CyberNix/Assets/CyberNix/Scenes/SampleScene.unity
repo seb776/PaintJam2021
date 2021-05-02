@@ -946,6 +946,7 @@ MonoBehaviour:
   - {fileID: 5208294129105524913, guid: b2bf1d2d2e4bb114db6874493e5eb841, type: 3}
   MobsSpawnXMin: 3
   MobsSpawnXMax: 6
+  MobSpawnChance: 0.05
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}
