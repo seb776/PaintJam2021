@@ -26,5 +26,9 @@ public class LifeBarHandler : MonoBehaviour
         {
             Destroy(LifeBarHolder.transform.GetChild(0).gameObject);
         }
+        if (AppSingleton.Instance.LevelService.Player.LifeNumber > LifeBarHolder.transform.childCount && LifeBarHolder.transform.childCount > 0)
+        {
+            var goFront = GameObject.Instantiate(CanFront, LifeBarHolder.transform);
+        }
     }
 }
