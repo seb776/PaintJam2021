@@ -2291,14 +2291,17 @@ MonoBehaviour:
   ScoreMobsSpawn: 500
   ScoreOnKill: 10
   ScoreByTilePassed: 1
-  StartPhase: 0
+  StartPhase: 3
   MobsAtSameTime: 4
   MobsTotalNumbers: 15
   BasicEnnemies:
   - {fileID: 5208294129105524913, guid: b2bf1d2d2e4bb114db6874493e5eb841, type: 3}
+  Boss:
+  - {fileID: 5420763552188161677, guid: eb0f5c3921e5167458af9e0c89cdb713, type: 3}
   MobsSpawnXMin: 3
   MobsSpawnXMax: 6
   MobSpawnChance: 0.05
+  WaveBeforeBoss: 1
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}

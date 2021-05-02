@@ -52,6 +52,7 @@ public class LevelService : MonoBehaviour
     private int _mobsDead;
     private int _phase; //0: Obstacle, 1: Mobs, ...
     private int _waveCount;
+    private Cassoulax _actualBoss;
 
     private List<GameObject> _mobsAlive;
 
@@ -137,13 +138,13 @@ public class LevelService : MonoBehaviour
         _waveCount = 0;
         if(Boss.Count != 0)
         {
-            SpawnOne(Boss[Random.Range(0, Boss.Count)]);
+            _actualBoss = SpawnOne(Boss[Random.Range(0, Boss.Count)]).GetComponent<Cassoulax>();
         }
     }
 
     private void _boss()
     {
-
+        _actualBoss.DoAction();
     }
 
     private void _handleTiles()
@@ -191,7 +192,7 @@ public class LevelService : MonoBehaviour
                 if (!Player.GameOver)
                 {
                     if(_phase == 0) Score += ScoreByTilePassed;
-                    if (_phase != 1 && _phase != 2)
+                    if (_phase != 1 && _phase != 2 && _phase != 3 && _phase != 4)
                     {
                         _mobsSpawnIn--;
                         if (_mobsSpawnIn < 0)
