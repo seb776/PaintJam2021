@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     public float InvicibleTime = 2f;
     public int LifeNumber;
     public float SpeedLostOnDamage;
+    public GameObject LifeBar;
 
     public float JumpHeight;
     public float Inclinaison;
@@ -108,6 +109,9 @@ public class PlayerScript : MonoBehaviour
                 GameOver = true;
                 gameObject.SetActive(false);
                 EndGameScreen.SetActive(true);
+                AppSingleton.Instance.SoundService.PlayEnd();
+                AppSingleton.Instance.SoundService.MainSound.volume = 0.2f;
+                LifeBar.SetActive(false);
             }
             StartCoroutine(Invulnerability());
         }

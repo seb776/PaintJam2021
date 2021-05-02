@@ -11,12 +11,13 @@ public class Cassoulax : MonoBehaviour
     public float JumpHeight;
     public float CanJumpAtY;
     public TextMesh Text;
+    public GameObject LifeBar;
 
     public float CommingSpeed;
     public float XStopPos;
 
     public int LifeNumber;
-
+    private int _maxLife;
     private float _nextFire;
     private bool CanDie;
     private float _currentPosition;
@@ -24,6 +25,7 @@ public class Cassoulax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _maxLife = LifeNumber;
         Text.text = AppSingleton.Instance.LevelService.GetName();
         Text.color = AppSingleton.Instance.LevelService.NameColors[Random.Range(0, AppSingleton.Instance.LevelService.NameColors.Count)];
         Text.color = new Color(Text.color.r, Text.color.g, Text.color.b, 1.0f);
@@ -35,6 +37,8 @@ public class Cassoulax : MonoBehaviour
 
     void Update()
     {
+        float lifeScale = (float)LifeNumber / (float)_maxLife;
+        LifeBar.transform.localScale = Vector3.one * lifeScale;
         if (transform.position.x > XStopPos)
         {
             transform.position = new Vector3(transform.position.x - CommingSpeed * Time.deltaTime, transform.position.y, transform.position.z);

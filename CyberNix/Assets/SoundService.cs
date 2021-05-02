@@ -9,6 +9,9 @@ public class SoundService : MonoBehaviour
     public AudioClip Jump;
     public AudioClip CassouletPresentation;
     public AudioClip CassouletDie;
+    public AudioClip EndSound;
+
+    public AudioSource MainSound;
 
     public GameObject SoundHolder;
     public GameObject PrefabSound;
@@ -48,5 +51,10 @@ public class SoundService : MonoBehaviour
     public void PlayCassouletDie()
     {
         _playSound(CassouletDie);
+    }
+
+    public void PlayEnd()
+    {
+        _playSound(EndSound);
     }
 }

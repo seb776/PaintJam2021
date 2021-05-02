@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341562676269975995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.97, y: 0, z: 0.073}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.49, y: 0, z: 0.073}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2970020181645859674}
   m_RootOrder: 2
@@ -233,14 +233,16 @@ MonoBehaviour:
   InvicibleTime: 2
   LifeNumber: 10
   SpeedLostOnDamage: 0.1
+  LifeBar: {fileID: 0}
   JumpHeight: 9
   Inclinaison: 2
   HightSpeedGap: 0.9
   JumpHeightHightSpeed: 12
   InclinaisonHighSpeed: 40
-  FireCouldown: 0.25
+  FireCouldown: 0.05
   Projectile: {fileID: 5208294129105524913, guid: 84e7811071f787242a4091f8e98ee2a2, type: 3}
   GameOver: 0
+  EndGameScreen: {fileID: 0}
 --- !u!54 &2970020181645859672
 Rigidbody:
   m_ObjectHideFlags: 0

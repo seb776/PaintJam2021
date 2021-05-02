@@ -365,14 +365,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1444929639}
     m_Modifications:
-    - target: {fileID: 329717225906154623, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 329717225906154623, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.49
-      objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859653, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -422,49 +414,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: JumpHeight
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: LifeNumber
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: Projectile
+      propertyPath: LifeBar
       value: 
-      objectReference: {fileID: 5208294129105524913, guid: 84e7811071f787242a4091f8e98ee2a2, type: 3}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: Inclinaison
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: FireCouldown
-      value: 0.05
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1469975051}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: EndGameScreen
       value: 
       objectReference: {fileID: 1389294380}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: HightSpeedGap
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: BodyParts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: InclinaisonHighSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: JumpHeightHightSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-      propertyPath: BodyParts.Array.data[2]
-      value: 
-      objectReference: {fileID: 2075674373}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
 --- !u!4 &201381384 stripped
@@ -2418,6 +2374,8 @@ MonoBehaviour:
   Jump: {fileID: 8300000, guid: 751f687320e1d804ab87bc3be75300d1, type: 3}
   CassouletPresentation: {fileID: 8300000, guid: 86674b7d935716b4082da64ea77957a4, type: 3}
   CassouletDie: {fileID: 8300000, guid: 1d38ccc09716c9f4984ca6557cb45aab, type: 3}
+  EndSound: {fileID: 8300000, guid: 71d424bd825628545b8700a9065cde89, type: 3}
+  MainSound: {fileID: 963194230}
   SoundHolder: {fileID: 1973244960}
   PrefabSound: {fileID: 8614980691929198576, guid: 75b75dba5951f4842bf6105c77f14612, type: 3}
 --- !u!1 &1235997655
@@ -3417,11 +3375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &2075674373 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 685653107418181061, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
-  m_PrefabInstance: {fileID: 201381383}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119490960
 GameObject:
   m_ObjectHideFlags: 0
