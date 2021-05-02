@@ -34,11 +34,19 @@ public class LevelService : MonoBehaviour
 
     public int Score;
     public int ScoreMobsSpawn;
+    public int ScoreOnKill;
+    public int ScoreByTilePassed;
     public int StartPhase;
 
     public int MobsAtSameTime;
     public int MobsTotalNumbers;
+    public List<GameObject> BasicEnnemies;
+    public float MobsSpawnXMin;
+    public float MobsSpawnXMax;
+
+    private GameObject _waveOfThis;
     private int _mobsSpawnIn;
+    private int _mobsDead;
     private int _phase; //0: Obstacle, 1: Mobs, ...
 
     private List<GameObject> _mobsAlive;
@@ -67,11 +75,53 @@ public class LevelService : MonoBehaviour
     private void _mobsManager()
     {
         //TODO : check if mobs spawned are dead, respawn if wave not complete or turn _phase at 0 to return to obstacle mode !
+        List<GameObject> shallowMobsAlive = new List<GameObject>(_mobsAlive);
+        foreach(GameObject mob in _mobsAlive)
+        {
+            if(!mob.activeSelf)
+            {
+                _mobsAlive.Remove(mob);
+                GameObject.Destroy(mob);
+                Score += ScoreOnKill;
+                _mobsDead++;
+                Debug.Log(_mobsDead);
+            }
+        }
+        if(_mobsDead >= MobsTotalNumbers)
+        {
+            _phase = 0;
+        } else if(_mobsAlive.Count < MobsAtSameTime)
+        {
+            _mobsAlive.Add(SpawnOne(_waveOfThis));
+        }
+    }
+
+    private GameObject SpawnOne(GameObject toSpawn)
+    {
+        return GameObject.Instantiate(toSpawn, new Vector3(Random.Range(MobsSpawnXMin, MobsSpawnXMax), toSpawn.transform.position.y, GetRandomLine()), toSpawn.transform.rotation);
     }
 
     private void _mobsSpawner()
     {
-        //_mobsAlive.Add(GameObject.Instantiate(GroundTilePrefab, GroundTilesHolder.transform));
+        if (BasicEnnemies.Count > 0) {
+            _mobsDead = 0;
+            _waveOfThis = BasicEnnemies[Random.Range(0, BasicEnnemies.Count)];
+            for (int i = 0; i < Random.Range(1, MobsAtSameTime + 1); ++i)
+            {
+                GameObject mob = SpawnOne(_waveOfThis);
+                _mobsAlive.Add(mob);
+            }
+        }
+    }
+
+    private float GetRandomLine()
+    {
+        return Random.Range(0, DepthCount) * DepthValue;
+    }
+
+    public float XLimit()
+    {
+        return -(TileCount / 2);
     }
 
     private void _handleTiles()
@@ -95,11 +145,15 @@ public class LevelService : MonoBehaviour
                             if (Prefabs.Count > 0)
                             {
                                 var futurePrefab = GameObject.Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], go.transform);
-                                futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(0, DepthCount) * DepthValue);
+                                futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, GetRandomLine());
                             }
                         }
                         break;
                     case 1:
+                        _mobsSpawner();
+                        _phase = 2;
+                        break;
+                    case 2:
                         _mobsManager();
                         break;
                 }
@@ -107,8 +161,8 @@ public class LevelService : MonoBehaviour
                 _currentGroundTiles.Add(go);
                 if (!Player.GameOver)
                 {
-                    Score++;
-                    if (_phase != 1)
+                    Score += ScoreByTilePassed;
+                    if (_phase != 1 && _phase != 2)
                     {
                         _mobsSpawnIn--;
                         if (_mobsSpawnIn < 0)

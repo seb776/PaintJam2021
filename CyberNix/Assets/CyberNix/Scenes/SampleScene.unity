@@ -928,10 +928,16 @@ MonoBehaviour:
   - {fileID: 1924685876709192589, guid: 181e42cf91c3dab45b2651f163b1de9e, type: 3}
   TileCount: 40
   Score: 0
-  ScoreMobsSpawn: 2147000000
+  ScoreMobsSpawn: 2147000
+  ScoreOnKill: 10
+  ScoreByTilePassed: 1
   StartPhase: 0
-  MobsAtSameTime: 0
-  MobsTotalNumbers: 0
+  MobsAtSameTime: 4
+  MobsTotalNumbers: 15
+  BasicEnnemies:
+  - {fileID: 5208294129105524913, guid: b2bf1d2d2e4bb114db6874493e5eb841, type: 3}
+  MobsSpawnXMin: 3
+  MobsSpawnXMax: 6
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}
