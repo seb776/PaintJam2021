@@ -10,7 +10,6 @@ public class HandleMenu : MonoBehaviour
     public GameObject CreditsHolder;
     public GameObject HighScoresHolder;
 
-    public GameObject HighScoresPrefab;
 
     public void PressStart()
     {
