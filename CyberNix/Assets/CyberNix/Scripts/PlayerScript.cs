@@ -25,6 +25,8 @@ public class PlayerScript : MonoBehaviour
     private float _nextFireAfter;
     public bool GameOver;
 
+    public GameObject EndGameScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +81,7 @@ public class PlayerScript : MonoBehaviour
             {
                 GameOver = true;
                 gameObject.SetActive(false); // TODO : make better game over
+                EndGameScreen.SetActive(true);
             }
             StartCoroutine(Invulnerability());
         }

@@ -11,12 +11,18 @@ public class HandleHighScores : MonoBehaviour
 
     void Start()
     {
+        RefreshScores();
+    }
+
+    public void RefreshScores()
+    {
         StartCoroutine(_getScores());
     }
+
     IEnumerator _getScores()
     {
         foreach (Transform t in ScoresHolder.transform) // Clear previous data
-            Destroy(t);
+            Destroy(t.gameObject);
 
         UnityWebRequest request = UnityWebRequest.Get("https://paintjam2021.azurewebsites.net/getscores");
         request.SetRequestHeader("content-Type", "application/json");
@@ -35,6 +41,7 @@ public class HandleHighScores : MonoBehaviour
 
             var json = request.downloadHandler.text;
             var highScores = JsonConvert.DeserializeObject<HighScoresDTO>(json);
+            highScores.Scores.Sort((a, b) => { return b.Score - a.Score; });
             foreach (var score in highScores.Scores)
             {
                 var scoreGO = GameObject.Instantiate(ScorePrefab, ScoresHolder.transform);
