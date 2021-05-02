@@ -119,6 +119,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Jump()
     {
+        AppSingleton.Instance.SoundService.PlayJump();
         if (AppSingleton.Instance.LevelService.Speed < AppSingleton.Instance.LevelService.MaxSpeed * HightSpeedGap)
         {
             Rigidbody.AddForce(Vector3.up * JumpHeight, ForceMode.VelocityChange);

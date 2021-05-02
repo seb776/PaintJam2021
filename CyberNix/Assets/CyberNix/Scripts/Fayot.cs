@@ -48,6 +48,7 @@ public class Fayot : MonoBehaviour
             gainPoint.transform.position = gameObject.transform.position;
             scriptPoint.Gain(_Level.ScoreOnKill);
             gameObject.SetActive(false);
+            AppSingleton.Instance.SoundService.PlayExplode();
         }
     }
 

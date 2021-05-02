@@ -26,6 +26,7 @@ public class Cassoulax : MonoBehaviour
         CanDie = false;
         _nextFire = 0;
         _currentPosition = transform.position.z / _Level.DepthValue;
+        AppSingleton.Instance.SoundService.PlayCassoulet();
     }
 
     void Update()

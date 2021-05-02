@@ -7,6 +7,7 @@ public class SoundService : MonoBehaviour
     public AudioClip Explode;
     public AudioClip ReceiveDamage;
     public AudioClip Jump;
+    public AudioClip CassouletPresentation;
 
     public GameObject SoundHolder;
     public GameObject PrefabSound;
@@ -37,5 +38,10 @@ public class SoundService : MonoBehaviour
     public void PlayJump()
     {
         _playSound(Jump);
+    }
+
+    public void PlayCassoulet()
+    {
+        _playSound(CassouletPresentation);
     }
 }
