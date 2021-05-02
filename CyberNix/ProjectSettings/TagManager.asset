@@ -15,8 +15,8 @@ TagManager:
   - ProjectileAlly
   - Player
   - Ennemies
-  - 
-  - 
+  - ProjectileBoss
+  - Health
   - 
   - 
   - 

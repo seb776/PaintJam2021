@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class Cassoulax : MonoBehaviour
     public float probaJump;
     public float probaFire;
     public Rigidbody Rigidbody;
+    public List<GameObject> Projectiles;
     public float JumpHeight;
     public float CanJumpAtY;
 
@@ -56,6 +56,19 @@ public class Cassoulax : MonoBehaviour
             {
                 Jump();
             }
+            if(Random.Range(0f, 1f) < probaFire)
+            {
+                Fire();
+            }
+        }
+    }
+
+    public void Fire()
+    {
+        if(Projectiles.Count > 0)
+        {
+            GameObject proj = Projectiles[Random.Range(0, Projectiles.Count)];
+            GameObject.Instantiate(proj, new Vector3(transform.position.x - (transform.localScale.x / 2f), transform.position.y, transform.position.z), proj.transform.rotation);
         }
     }
 
@@ -66,9 +79,17 @@ public class Cassoulax : MonoBehaviour
 
     public void MoveAt(float z)
     {
-        Debug.Log(z);
         var pos = transform.position;
         transform.position = new Vector3(pos.x, pos.y, z);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            TookDamage();
+            Destroy(collision.gameObject);
+        }
     }
 
     public void TookDamage()
@@ -78,7 +99,7 @@ public class Cassoulax : MonoBehaviour
             LifeNumber--;
             if(LifeNumber < 1)
             {
-
+                gameObject.SetActive(false);
             }
         }
     }

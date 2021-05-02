@@ -35,8 +35,10 @@ public class LevelService : MonoBehaviour
     public int Score;
     public int ScoreMobsSpawn;
     public int ScoreOnKill;
+    public int ScoreOnBoss;
     public int ScoreByTilePassed;
     public int StartPhase;
+    public int WaveBeforeBoss;
 
     public int MobsAtSameTime;
     public int MobsTotalNumbers;
@@ -45,7 +47,6 @@ public class LevelService : MonoBehaviour
     public float MobsSpawnXMin;
     public float MobsSpawnXMax;
     public float MobSpawnChance;
-    public int WaveBeforeBoss;
 
     private GameObject _waveOfThis;
     private int _mobsSpawnIn;
@@ -145,6 +146,12 @@ public class LevelService : MonoBehaviour
     private void _boss()
     {
         _actualBoss.DoAction();
+        if(!_actualBoss.gameObject.activeSelf)
+        {
+            Destroy(_actualBoss);
+            _phase = 0;
+            Score += ScoreOnBoss;
+        }
     }
 
     private void _handleTiles()

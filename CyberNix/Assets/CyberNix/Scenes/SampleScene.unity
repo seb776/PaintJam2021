@@ -1866,7 +1866,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 75
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2290,8 +2290,10 @@ MonoBehaviour:
   Score: 0
   ScoreMobsSpawn: 500
   ScoreOnKill: 10
+  ScoreOnBoss: 150
   ScoreByTilePassed: 1
-  StartPhase: 3
+  StartPhase: 1
+  WaveBeforeBoss: 1
   MobsAtSameTime: 4
   MobsTotalNumbers: 15
   BasicEnnemies:
@@ -2301,7 +2303,6 @@ MonoBehaviour:
   MobsSpawnXMin: 3
   MobsSpawnXMax: 6
   MobSpawnChance: 0.05
-  WaveBeforeBoss: 1
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}

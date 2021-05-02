@@ -10,9 +10,12 @@ public class Fayot : MonoBehaviour
 
     private float _nextFire;
     private float _xStopPos;
+
+    private bool CanDie;
     // Start is called before the first frame update
     void Start()
     {
+        CanDie = false;
         _nextFire = 0;
         _xStopPos = Random.Range(AppSingleton.Instance.LevelService.MobsSpawnXMin, AppSingleton.Instance.LevelService.MobsSpawnXMax);
     }
@@ -26,11 +29,29 @@ public class Fayot : MonoBehaviour
         }
         else
         {
+            CanDie = true;
             if (Time.time > _nextFire)
             {
                 GameObject.Instantiate(Projectile.gameObject, new Vector3(transform.position.x - (transform.localScale.x), transform.position.y, transform.position.z), Projectile.transform.rotation);
                 _nextFire = Time.time + TimeBetweenFire;
             }
+        }
+    }
+
+    public void TookDamage()
+    {
+        if(CanDie)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            Destroy(collision.gameObject);
+            TookDamage();
         }
     }
 }

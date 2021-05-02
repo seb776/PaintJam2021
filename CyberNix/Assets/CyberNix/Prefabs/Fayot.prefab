@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 2467234576535442229, guid: 26f72ae35cb0dca40b28c78e74608673, type: 3}
   TimeBetweenFire: 1.25
-  Speed: 10
+  Speed: 20
 --- !u!65 &4422282551352390861
 BoxCollider:
   m_ObjectHideFlags: 0

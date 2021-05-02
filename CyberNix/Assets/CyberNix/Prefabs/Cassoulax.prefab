@@ -488,15 +488,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16afe13b7957167449769a669ccde73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probaMove: 0.1
-  probaJump: 1
-  probaFire: 0
+  probaMove: 0.25
+  probaJump: 0.65
+  probaFire: 0.2
   Rigidbody: {fileID: 2232190893005735293}
+  Projectiles:
+  - {fileID: 5208294129105524913, guid: 3e0d56fd77b7576448891299b1cb23f1, type: 3}
+  - {fileID: 5208294129105524913, guid: c5a484c460ecdfa4abd4f18f5fa5a1ee, type: 3}
+  - {fileID: 5208294129105524913, guid: 66ba0096958f30a48a83e5f5519bc106, type: 3}
   JumpHeight: 12
   CanJumpAtY: 2
   CommingSpeed: 5
   XStopPos: 5
-  LifeNumber: 20
+  LifeNumber: 5
 --- !u!65 &2140982255023808041
 BoxCollider:
   m_ObjectHideFlags: 0
