@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public MeshRenderer[] BodyParts;
     public float BlinkSpeed = .05f;
     public float InvicibleTime = 2f;
-    public int LifeNumber = 3;
+    public int LifeNumber;
     public float SpeedLostOnDamage;
 
     public float JumpHeight;

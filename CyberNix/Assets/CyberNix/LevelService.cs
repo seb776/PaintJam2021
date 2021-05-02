@@ -41,14 +41,17 @@ public class LevelService : MonoBehaviour
     public int MobsAtSameTime;
     public int MobsTotalNumbers;
     public List<GameObject> BasicEnnemies;
+    public List<GameObject> Boss;
     public float MobsSpawnXMin;
     public float MobsSpawnXMax;
     public float MobSpawnChance;
+    public int WaveBeforeBoss;
 
     private GameObject _waveOfThis;
     private int _mobsSpawnIn;
     private int _mobsDead;
     private int _phase; //0: Obstacle, 1: Mobs, ...
+    private int _waveCount;
 
     private List<GameObject> _mobsAlive;
 
@@ -60,6 +63,7 @@ public class LevelService : MonoBehaviour
         _landscapeObjects = new List<GameObject>();
         _currentGroundTiles = new List<GameObject>();
         _mobsAlive = new List<GameObject>();
+        _waveCount = 0;
 
         for (int i = 0; i < TileCount; ++i)
         {
@@ -89,6 +93,7 @@ public class LevelService : MonoBehaviour
         }
         if(_mobsDead >= MobsTotalNumbers)
         {
+            _waveCount++;
             _phase = 0;
             _mobsSpawnIn = ScoreMobsSpawn;
         } else if(_mobsAlive.Count < MobsAtSameTime && Random.Range(0f, 1f) < MobSpawnChance)
@@ -127,6 +132,20 @@ public class LevelService : MonoBehaviour
         return _mobsAlive;
     }
 
+    private void _spawnBoss()
+    {
+        _waveCount = 0;
+        if(Boss.Count != 0)
+        {
+            SpawnOne(Boss[Random.Range(0, Boss.Count)]);
+        }
+    }
+
+    private void _boss()
+    {
+
+    }
+
     private void _handleTiles()
     {
         List<GameObject> tmpGround = new List<GameObject>(_currentGroundTiles);
@@ -159,6 +178,13 @@ public class LevelService : MonoBehaviour
                     case 2:
                         _mobsManager();
                         break;
+                    case 3:
+                        _spawnBoss();
+                        _phase = 4;
+                        break;
+                    case 4:
+                        _boss();
+                        break;
                 }
                 
                 _currentGroundTiles.Add(go);
@@ -170,7 +196,14 @@ public class LevelService : MonoBehaviour
                         _mobsSpawnIn--;
                         if (_mobsSpawnIn < 0)
                         {
-                            _phase = 1;
+                            if (_waveCount >= WaveBeforeBoss)
+                            {
+                                _phase = 3;
+                            }
+                            else
+                            {
+                                _phase = 1;
+                            }
                         }
                     }
                     ScoreText.text = Score.ToString();
