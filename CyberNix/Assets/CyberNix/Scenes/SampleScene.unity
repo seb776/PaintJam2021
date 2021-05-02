@@ -2266,6 +2266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundTilesHolder: {fileID: 1709897267}
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
+  GaindPointPrefab: {fileID: 1581233450526643821, guid: 2017065bf0c2fc6468496ec53b16b104, type: 3}
   LevelInstances: {fileID: 1444929638}
   Speed: 0
   Acceleration: 1
