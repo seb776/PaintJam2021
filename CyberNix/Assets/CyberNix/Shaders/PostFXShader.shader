@@ -71,8 +71,8 @@ Shader "Unlit/PostFXShader"
 				half2 offset;
 				float sigma = float(_Radius) * 0.25;
 
-				for (int x = -sigma / 2; x < sigma / 2; x += 2) {
-					for (int y = -sigma / 2; y < sigma / 2; y += 2) {
+				for (int x = -sigma / 2; x < sigma / 2; x += 3) {
+					for (int y = -sigma / 2; y < sigma / 2; y += 3) {
 						offset = half2(x, y);
 						weight = gaussian(offset);
 						half3 smple = tex2D(sp, uv + scale * offset).rgb;
