@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class LevelService : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class LevelService : MonoBehaviour
     public float GroundTheshold;
     public AudioSource Music;
     public List<GameObject> Prefabs;
+    public TextMeshProUGUI ScoreText;
 
     public PlayerScript Player;
     private int CurrentPlayerDepth;
@@ -72,8 +74,11 @@ public class LevelService : MonoBehaviour
                     }
                 }
                 _currentGroundTiles.Add(go);
-                Score++;
-                Debug.Log(Score);
+                if (!Player.GameOver)
+                {
+                    Score++;
+                    ScoreText.text = Score.ToString();
+                }
             }
         }
 

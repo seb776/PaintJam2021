@@ -18,10 +18,12 @@ public class PlayerScript : MonoBehaviour
     public float InclinaisonHighSpeed;
 
     private bool CanDie;
+    public bool GameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameOver = false;
         CanDie = true;
         if (LifeNumber < 1) LifeNumber = 1;
     }
@@ -53,7 +55,11 @@ public class PlayerScript : MonoBehaviour
             CanDie = false;
             LifeNumber--;
             AppSingleton.Instance.LevelService.Speed = AppSingleton.Instance.LevelService.Speed * (1 - SpeedLostOnDamage);
-            if (LifeNumber < 1) gameObject.SetActive(false); // TODO : make better game over
+            if (LifeNumber < 1)
+            {
+                GameOver = true;
+                gameObject.SetActive(false); // TODO : make better game over
+            }
             StartCoroutine(Invulnerability());
         }
     }
