@@ -262,6 +262,10 @@ public class LevelService : MonoBehaviour
     public List<GameObject> BackgroundPlanes;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            AppSingleton.Instance.Menu();
+        }
         _handleTiles();
         GroundTilesHolder.transform.position += Vector3.left * Time.deltaTime * Speed;
         if(Speed < MaxSpeed) Speed += Acceleration * Time.deltaTime;

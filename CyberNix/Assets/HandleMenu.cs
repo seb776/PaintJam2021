@@ -10,7 +10,13 @@ public class HandleMenu : MonoBehaviour
     public GameObject CreditsHolder;
     public GameObject HighScoresHolder;
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     public void PressStart()
     {
         MainMenuHolder.SetActive(false);
