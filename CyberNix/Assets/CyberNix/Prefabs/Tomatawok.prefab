@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2188816391425095466}
   - component: {fileID: 5265581530623202068}
   - component: {fileID: 7151644865321356535}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf4b46d80ebc1e24b939eab4addc47f2, type: 2}
+  - {fileID: 2100000, guid: aebe34f87292cba44917a4409f0a825a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 4689140118597619927}
   - component: {fileID: 7398739546631271131}
   - component: {fileID: 2467234576535442229}
-  - component: {fileID: 1492431290210042455}
-  m_Layer: 6
-  m_Name: FayotCutter
+  - component: {fileID: 6891271951203982620}
+  m_Layer: 7
+  m_Name: Tomatawok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 5208294129105524913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.125, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 2188816391425095466}
   m_Father: {fileID: 0}
@@ -195,7 +195,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &1492431290210042455
+--- !u!114 &6891271951203982620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,10 +204,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5208294129105524913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8beed5fe30b627c419662ed79d4d0b72, type: 3}
+  m_Script: {fileID: 11500000, guid: 822a8e301efa1864fa517e90811a7642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 2467234576535442229}
-  Speed: 5
+  Speed: 10
   SpeedRotation: 0
   Texture: {fileID: 2221074011760032247}

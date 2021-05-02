@@ -17,12 +17,18 @@ public class PlayerScript : MonoBehaviour
     public float JumpHeightHightSpeed;
     public float InclinaisonHighSpeed;
 
+    public float FireCouldown;
+
+    public GameObject Projectile;
+
     private bool CanDie;
+    private float _nextFireAfter;
     public bool GameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        _nextFireAfter = 0;
         GameOver = false;
         CanDie = true;
         if (LifeNumber < 1) LifeNumber = 1;
@@ -51,6 +57,15 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         TookDamage();
+    }
+
+    public void FireAt()
+    {
+        if (Time.time > _nextFireAfter)
+        {
+            GameObject.Instantiate(Projectile.gameObject, new Vector3(transform.position.x + (transform.localScale.x / 1.9f), transform.position.y, transform.position.z), Projectile.transform.rotation);
+            _nextFireAfter = Time.time + FireCouldown;
+        }
     }
 
     public void TookDamage()

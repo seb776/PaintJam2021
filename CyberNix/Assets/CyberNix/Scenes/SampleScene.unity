@@ -195,8 +195,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 5208294129105524913, guid: 84e7811071f787242a4091f8e98ee2a2, type: 3}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: Inclinaison
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
+      propertyPath: FireCouldown
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2970020181645859675, guid: 6e2426cf4df0c6344a85b67b56a1e6e0, type: 3}
       propertyPath: HightSpeedGap
@@ -928,7 +936,7 @@ MonoBehaviour:
   - {fileID: 1924685876709192589, guid: 181e42cf91c3dab45b2651f163b1de9e, type: 3}
   TileCount: 40
   Score: 0
-  ScoreMobsSpawn: 2147000
+  ScoreMobsSpawn: 100
   ScoreOnKill: 10
   ScoreByTilePassed: 1
   StartPhase: 0
@@ -938,6 +946,7 @@ MonoBehaviour:
   - {fileID: 5208294129105524913, guid: b2bf1d2d2e4bb114db6874493e5eb841, type: 3}
   MobsSpawnXMin: 3
   MobsSpawnXMax: 6
+  MobSpawnChance: 0.05
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}

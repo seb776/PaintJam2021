@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileAlly : MonoBehaviour
 {
     public Rigidbody Rigidbody;
     public float Speed;
@@ -17,21 +17,29 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < AppSingleton.Instance.LevelService.XLimit())
+        if(transform.position.x > AppSingleton.Instance.LevelService.XLimit() * -1)
         {
             Destroy(gameObject);
         }
-        Rigidbody.velocity = new Vector3(-Speed - (AppSingleton.Instance.LevelService.Speed / 3f), Random.Range(-1f, 1f), Rigidbody.velocity.z);
+        Rigidbody.velocity = new Vector3(Speed, Random.Range(-1f, 1f), Rigidbody.velocity.z);
         // TODO projectile rotation:
         // Texture.transform.localRotation = Quaternion.Euler(Texture.transform.localRotation.x, Texture.transform.localRotation.y, Texture.transform.localRotation.z + SpeedRotation * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetInstanceID() == AppSingleton.Instance.LevelService.Player.gameObject.GetInstanceID())
+        if(collision.gameObject.layer == 6)
         {
-            AppSingleton.Instance.LevelService.Player.TookDamage();
+            Destroy(collision.gameObject);
             Destroy(gameObject);
+        }
+        foreach(GameObject mob in AppSingleton.Instance.LevelService.GetMobsAlive() )
+        {
+            if(mob.GetInstanceID() == collision.gameObject.GetInstanceID())
+            {
+                mob.SetActive(false);
+                Destroy(gameObject);
+            }
         }
     }
 }
