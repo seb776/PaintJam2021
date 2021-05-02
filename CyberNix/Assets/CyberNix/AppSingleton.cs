@@ -11,6 +11,7 @@ public class AppSingleton : Singleton<AppSingleton>
     public HandleHighScores HighScores;
     public TMPro.TMP_InputField NameInputField;
     public GameObject ButtonSend;
+    public SoundService SoundService;
     public string MenuSceneName;
 
     public void Retry()
