@@ -99,6 +99,10 @@ public class Cassoulax : MonoBehaviour
             LifeNumber--;
             if(LifeNumber < 1)
             {
+                var gainPoint = GameObject.Instantiate(_Level.GaindPointPrefab, _Level.GroundTilesHolder.transform);
+                var scriptPoint = gainPoint.GetComponent<GainPoint>();
+                scriptPoint.Gain(_Level.ScoreOnKill);
+                gainPoint.transform.position = gameObject.transform.position;
                 gameObject.SetActive(false);
             }
         }

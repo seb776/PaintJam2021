@@ -12,6 +12,7 @@ public class Fayot : MonoBehaviour
     private float _xStopPos;
 
     private bool CanDie;
+    private LevelService _Level { get { return AppSingleton.Instance.LevelService; } }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,10 @@ public class Fayot : MonoBehaviour
     {
         if(CanDie)
         {
+            var gainPoint = GameObject.Instantiate(_Level.GaindPointPrefab, _Level.GroundTilesHolder.transform);
+            var scriptPoint = gainPoint.GetComponent<GainPoint>();
+            gainPoint.transform.position = gameObject.transform.position;
+            scriptPoint.Gain(_Level.ScoreOnKill);
             gameObject.SetActive(false);
         }
     }

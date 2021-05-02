@@ -9,6 +9,8 @@ public class LevelService : MonoBehaviour
     public GameObject GroundTilesHolder;
     public GameObject GroundTilePrefab;
 
+    public GameObject GaindPointPrefab;
+
     public GameObject LevelInstances; // holds object seen in the camera frame
     public float Speed;
     public float Acceleration;
