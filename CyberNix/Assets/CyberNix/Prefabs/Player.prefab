@@ -238,6 +238,9 @@ MonoBehaviour:
   HightSpeedGap: 0.9
   JumpHeightHightSpeed: 12
   InclinaisonHighSpeed: 40
+  FireCouldown: 0.25
+  Projectile: {fileID: 5208294129105524913, guid: 84e7811071f787242a4091f8e98ee2a2, type: 3}
+  GameOver: 0
 --- !u!54 &2970020181645859672
 Rigidbody:
   m_ObjectHideFlags: 0

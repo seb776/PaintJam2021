@@ -20,7 +20,7 @@ public class Fayot : MonoBehaviour
     {
         if(Time.time > _nextFire)
         {
-            GameObject.Instantiate(Projectile.gameObject, new Vector3(transform.position.x - (transform.localScale.x / 1.9f), transform.position.y, transform.position.z), Projectile.transform.rotation);
+            GameObject.Instantiate(Projectile.gameObject, new Vector3(transform.position.x - (transform.localScale.x), transform.position.y, transform.position.z), Projectile.transform.rotation);
             _nextFire = Time.time + TimeBetweenFire;
         }
     }

@@ -76,7 +76,7 @@ public class LevelService : MonoBehaviour
     {
         //TODO : check if mobs spawned are dead, respawn if wave not complete or turn _phase at 0 to return to obstacle mode !
         List<GameObject> shallowMobsAlive = new List<GameObject>(_mobsAlive);
-        foreach(GameObject mob in _mobsAlive)
+        foreach(GameObject mob in shallowMobsAlive)
         {
             if(!mob.activeSelf)
             {
@@ -84,12 +84,12 @@ public class LevelService : MonoBehaviour
                 GameObject.Destroy(mob);
                 Score += ScoreOnKill;
                 _mobsDead++;
-                Debug.Log(_mobsDead);
             }
         }
         if(_mobsDead >= MobsTotalNumbers)
         {
             _phase = 0;
+            _mobsSpawnIn = ScoreMobsSpawn;
         } else if(_mobsAlive.Count < MobsAtSameTime)
         {
             _mobsAlive.Add(SpawnOne(_waveOfThis));
@@ -106,11 +106,8 @@ public class LevelService : MonoBehaviour
         if (BasicEnnemies.Count > 0) {
             _mobsDead = 0;
             _waveOfThis = BasicEnnemies[Random.Range(0, BasicEnnemies.Count)];
-            for (int i = 0; i < Random.Range(1, MobsAtSameTime + 1); ++i)
-            {
-                GameObject mob = SpawnOne(_waveOfThis);
-                _mobsAlive.Add(mob);
-            }
+            GameObject mob = SpawnOne(_waveOfThis);
+           _mobsAlive.Add(mob);
         }
     }
 
@@ -122,6 +119,11 @@ public class LevelService : MonoBehaviour
     public float XLimit()
     {
         return -(TileCount / 2);
+    }
+
+    public List<GameObject> GetMobsAlive()
+    {
+        return _mobsAlive;
     }
 
     private void _handleTiles()
@@ -221,6 +223,10 @@ public class LevelService : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Player.transform.position.y < GroundTheshold)
         {
             Player.Jump();
+        }
+        if(Input.GetKeyDown(KeyCode.C) && !Player.GameOver)
+        {
+            Player.FireAt();
         }
         Player.MoveAt(CurrentPlayerDepth * DepthValue);
 

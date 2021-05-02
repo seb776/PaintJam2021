@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Rigidbody.velocity = new Vector3(-Speed - (AppSingleton.Instance.LevelService.Speed / 3f), Random.Range(-1f, 1f), Rigidbody.velocity.z);
+        Rigidbody.velocity = new Vector3(-Speed - (AppSingleton.Instance.LevelService.Speed / 3f), Rigidbody.velocity.y, Rigidbody.velocity.z);
         // TODO projectile rotation:
         // Texture.transform.localRotation = Quaternion.Euler(Texture.transform.localRotation.x, Texture.transform.localRotation.y, Texture.transform.localRotation.z + SpeedRotation * Time.deltaTime);
     }

@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 4689140118597619927}
   - component: {fileID: 6158154725526321527}
   - component: {fileID: 4521673985762870859}
+  - component: {fileID: 4422282551352390861}
   m_Layer: 0
   m_Name: Fayot
   m_TagString: Untagged
@@ -292,7 +293,7 @@ MeshCollider:
   m_GameObject: {fileID: 5208294129105524913}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -311,7 +312,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 2467234576535442229, guid: 26f72ae35cb0dca40b28c78e74608673, type: 3}
   TimeBetweenFire: 2.5
-  BeginFireAfter: 3.5
+  BeginFireAfter: 0
+--- !u!65 &4422282551352390861
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208294129105524913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.35}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7468477300834699769
 GameObject:
   m_ObjectHideFlags: 0
