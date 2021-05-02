@@ -50,6 +50,11 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        TookDamage();
+    }
+
+    public void TookDamage()
+    {
         if (CanDie)
         {
             CanDie = false;
