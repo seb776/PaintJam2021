@@ -9,17 +9,18 @@ public class GainPoint : MonoBehaviour
     public float SpeedUp;
     public List<Color> Colors;
     public TextMesh Text;
+    private bool _move = false;
 
     void Start()
     {
-        Gain(50);
     }
 
     public void Gain(int point)
     {
         Text.color = Colors[Random.Range(0, Colors.Count)];
         Text.text = $"+{point}";
-        StartCoroutine(_handleGainPoint());        
+        _move = true;
+        StartCoroutine(_handleGainPoint());
     }
 
     IEnumerator _handleGainPoint()
@@ -40,7 +41,8 @@ public class GainPoint : MonoBehaviour
     }
     public void Update()
     {
-        this.transform.position += Vector3.up * SpeedUp*Time.deltaTime;
+        if (_move)
+            this.transform.position += Vector3.up * SpeedUp * Time.deltaTime;
     }
 
 }
