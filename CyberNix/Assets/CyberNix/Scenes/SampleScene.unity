@@ -920,6 +920,7 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
   - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}
+  - {fileID: 1923449187983440972, guid: dc1f745bece68cb4ab253398fdde3216, type: 3}
   ScoreText: {fileID: 2119490962}
   Player: {fileID: 201381385}
   CandlePrefab: {fileID: 844675115007952609, guid: 1d86a16d7c5130d418114c8bfe49f9c1, type: 3}
@@ -927,6 +928,10 @@ MonoBehaviour:
   - {fileID: 1924685876709192589, guid: 181e42cf91c3dab45b2651f163b1de9e, type: 3}
   TileCount: 40
   Score: 0
+  ScoreMobsSpawn: 2147000000
+  StartPhase: 0
+  MobsAtSameTime: 0
+  MobsTotalNumbers: 0
   BackgroundPlanes:
   - {fileID: 435821993}
   - {fileID: 1464214381}

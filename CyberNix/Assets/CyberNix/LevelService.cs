@@ -33,12 +33,24 @@ public class LevelService : MonoBehaviour
     public int TileCount;
 
     public int Score;
+    public int ScoreMobsSpawn;
+    public int StartPhase;
+
+    public int MobsAtSameTime;
+    public int MobsTotalNumbers;
+    private int _mobsSpawnIn;
+    private int _phase; //0: Obstacle, 1: Mobs, ...
+
+    private List<GameObject> _mobsAlive;
 
     void Start()
     {
         Score = 0;
+        _phase = StartPhase;
+        _mobsSpawnIn = ScoreMobsSpawn;
         _landscapeObjects = new List<GameObject>();
         _currentGroundTiles = new List<GameObject>();
+        _mobsAlive = new List<GameObject>();
 
         for (int i = 0; i < TileCount; ++i)
         {
@@ -50,6 +62,16 @@ public class LevelService : MonoBehaviour
             tileObj.gameObject.GetComponent<MeshRenderer>().material.color = new Color(color, color, color);
             _currentGroundTiles.Add(tileObj);
         }
+    }
+
+    private void _mobsManager()
+    {
+        //TODO : check if mobs spawned are dead, respawn if wave not complete or turn _phase at 0 to return to obstacle mode !
+    }
+
+    private void _mobsSpawner()
+    {
+        //_mobsAlive.Add(GameObject.Instantiate(GroundTilePrefab, GroundTilesHolder.transform));
     }
 
     private void _handleTiles()
@@ -65,18 +87,35 @@ public class LevelService : MonoBehaviour
                 {
                     GameObject.Destroy(child.gameObject);
                 }
-                if (Random.Range(0f, 1f) < ObstacleSpawnChance)
+                switch(_phase)
                 {
-                    if (Prefabs.Count > 0)
-                    {
-                        var futurePrefab = GameObject.Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], go.transform);
-                        futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(0, DepthCount) * DepthValue);
-                    }
+                    case 0:
+                        if (Random.Range(0f, 1f) < ObstacleSpawnChance)
+                        {
+                            if (Prefabs.Count > 0)
+                            {
+                                var futurePrefab = GameObject.Instantiate(Prefabs[Random.Range(0, Prefabs.Count)], go.transform);
+                                futurePrefab.transform.position = new Vector3(futurePrefab.transform.position.x, futurePrefab.transform.position.y, Random.Range(0, DepthCount) * DepthValue);
+                            }
+                        }
+                        break;
+                    case 1:
+                        _mobsManager();
+                        break;
                 }
+                
                 _currentGroundTiles.Add(go);
                 if (!Player.GameOver)
                 {
                     Score++;
+                    if (_phase != 1)
+                    {
+                        _mobsSpawnIn--;
+                        if (_mobsSpawnIn < 0)
+                        {
+                            _phase = 1;
+                        }
+                    }
                     ScoreText.text = Score.ToString();
                 }
             }
