@@ -148,12 +148,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371689775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
-  m_Father: {fileID: 1113568674}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &371689777
 ParticleSystemRenderer:
@@ -175,7 +175,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3d202ca271beb5f4aa19f56e9153d64e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -631,7 +631,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -684,7 +684,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -737,9 +737,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.017453292
+      minScalar: -0.017453292
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -788,7 +788,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    randomizeRotationDirection: 0
+    randomizeRotationDirection: 0.5
     maxNumParticles: 10
     size3D: 0
     rotation3D: 0
@@ -1550,7 +1550,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 1
+    enabled: 0
     mode: 1
     timeMode: 2
     fps: 30
@@ -5353,7 +5353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1113568672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5370,18 +5370,29 @@ MonoBehaviour:
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
   LevelInstances: {fileID: 0}
   Speed: 10
-  JumpHeight: 9
+  Acceleration: 0
+  MaxSpeed: 0
+  MinPitch: 0
+  MaxPitch: 0
   DepthValue: 1.5
   ObstacleSpawnChance: 0.15
   DepthCount: 4
+  GroundTheshold: 0
+  Music: {fileID: 0}
   Prefabs:
   - {fileID: 1923449187983440972, guid: d56d35c1938482943a401eb429c17748, type: 3}
   - {fileID: 1923449187983440972, guid: 7b8932a3403fb94489c6dedba8fb036f, type: 3}
+  ScoreText: {fileID: 0}
   Player: {fileID: 0}
   CandlePrefab: {fileID: 844675115007952609, guid: 1d86a16d7c5130d418114c8bfe49f9c1, type: 3}
   CloseBuildingPrefabs:
   - {fileID: 1924685876709192589, guid: 181e42cf91c3dab45b2651f163b1de9e, type: 3}
   TileCount: 40
+  Score: 0
+  ScoreMobsSpawn: 0
+  StartPhase: 0
+  MobsAtSameTime: 0
+  MobsTotalNumbers: 0
   BackgroundPlanes:
   - {fileID: 0}
   - {fileID: 0}
@@ -5408,9 +5419,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1845422648}
-  - {fileID: 371689776}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5442,11 +5451,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845422647}
   m_LocalRotation: {x: 0.09172963, y: -0, z: -0, w: 0.995784}
-  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
   m_LocalScale: {x: 25, y: 5, z: 10}
   m_Children: []
-  m_Father: {fileID: 1113568674}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1845422649
 MonoBehaviour:
