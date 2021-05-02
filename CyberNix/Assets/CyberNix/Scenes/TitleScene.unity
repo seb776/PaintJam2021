@@ -6029,7 +6029,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ec9a011e136038f4283e1446017edb1e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6254,6 +6254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundTilesHolder: {fileID: 0}
   GroundTilePrefab: {fileID: 4623497898720306096, guid: 69b51c2f45b5f4e44b204267ffb67623, type: 3}
+  GaindPointPrefab: {fileID: 0}
   LevelInstances: {fileID: 0}
   Speed: 10
   Acceleration: 0
@@ -6277,14 +6278,21 @@ MonoBehaviour:
   Score: 0
   ScoreMobsSpawn: 0
   ScoreOnKill: 0
+  ScoreOnHealth: 0
+  ScoreOnBoss: 0
   ScoreByTilePassed: 0
   StartPhase: 0
+  WaveBeforeBoss: 0
   MobsAtSameTime: 0
   MobsTotalNumbers: 0
   BasicEnnemies: []
+  Boss: []
   MobsSpawnXMin: 0
   MobsSpawnXMax: 0
   MobSpawnChance: 0
+  FirstNames: []
+  LastNames: []
+  NameColors: []
   BackgroundPlanes:
   - {fileID: 0}
   - {fileID: 0}
@@ -6301,6 +6309,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelService: {fileID: 1113568672}
+  HighScores: {fileID: 0}
+  NameInputField: {fileID: 0}
+  ButtonSend: {fileID: 0}
+  SoundService: {fileID: 0}
+  MenuSceneName: 
 --- !u!4 &1113568674
 Transform:
   m_ObjectHideFlags: 0
