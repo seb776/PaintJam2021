@@ -28,6 +28,11 @@ public class ProjectileAlly : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.layer == 6)
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
         foreach(GameObject mob in AppSingleton.Instance.LevelService.GetMobsAlive() )
         {
             if(mob.GetInstanceID() == collision.gameObject.GetInstanceID())

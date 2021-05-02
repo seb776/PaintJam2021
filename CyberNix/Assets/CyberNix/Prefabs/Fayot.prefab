@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3947014644448157309}
   - component: {fileID: 5398543251469168213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 2786294663613124132}
   - component: {fileID: 8735338882606447362}
   - component: {fileID: 7201522181318871856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3395354041046739148}
   - component: {fileID: 8238097409086138647}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6158154725526321527}
   - component: {fileID: 4521673985762870859}
   - component: {fileID: 4422282551352390861}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fayot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 2798342494478761294}
   - component: {fileID: 6657435506113311674}
   - component: {fileID: 8324694856333586926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

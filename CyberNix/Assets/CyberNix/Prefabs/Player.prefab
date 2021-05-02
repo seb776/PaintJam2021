@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 329717225906154623}
   - component: {fileID: 139389697925296358}
   - component: {fileID: 685653107418181061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2582525900035823092}
   - component: {fileID: 8181406422496946622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 2970020181645859675}
   - component: {fileID: 2970020181645859672}
   - component: {fileID: 2970020181645859673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 2970020182491422135}
   - component: {fileID: 2970020182491422134}
   - component: {fileID: 2970020182491422132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vehicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 2970020183369350147}
   - component: {fileID: 2970020183369350146}
   - component: {fileID: 2970020183369350144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315657324961054032}
   - component: {fileID: 805801348240616407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

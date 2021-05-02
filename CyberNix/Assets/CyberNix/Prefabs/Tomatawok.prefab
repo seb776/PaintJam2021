@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2188816391425095466}
   - component: {fileID: 5265581530623202068}
   - component: {fileID: 7151644865321356535}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7398739546631271131}
   - component: {fileID: 2467234576535442229}
   - component: {fileID: 6891271951203982620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tomatawok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
