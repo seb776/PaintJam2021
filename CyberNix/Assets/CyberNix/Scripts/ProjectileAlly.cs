@@ -22,8 +22,7 @@ public class ProjectileAlly : MonoBehaviour
             Destroy(gameObject);
         }
         Rigidbody.velocity = new Vector3(Speed, Random.Range(-1f, 1f), Rigidbody.velocity.z);
-        // TODO projectile rotation:
-        // Texture.transform.localRotation = Quaternion.Euler(Texture.transform.localRotation.x, Texture.transform.localRotation.y, Texture.transform.localRotation.z + SpeedRotation * Time.deltaTime);
+        Texture.transform.Rotate(Vector3.forward * SpeedRotation * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

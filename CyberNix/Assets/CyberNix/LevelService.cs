@@ -164,7 +164,7 @@ public class LevelService : MonoBehaviour
                 _currentGroundTiles.Add(go);
                 if (!Player.GameOver)
                 {
-                    Score += ScoreByTilePassed;
+                    if(_phase == 0) Score += ScoreByTilePassed;
                     if (_phase != 1 && _phase != 2)
                     {
                         _mobsSpawnIn--;

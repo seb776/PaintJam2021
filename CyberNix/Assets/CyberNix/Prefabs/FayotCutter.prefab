@@ -209,5 +209,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 2467234576535442229}
   Speed: 5
-  SpeedRotation: 0
+  SpeedRotation: 1000
   Texture: {fileID: 2221074011760032247}

@@ -917,11 +917,11 @@ MonoBehaviour:
   LevelInstances: {fileID: 1444929638}
   Speed: 0
   Acceleration: 1
-  MaxSpeed: 22
+  MaxSpeed: 20
   MinPitch: 0.8
   MaxPitch: 1.65
   DepthValue: 1.5
-  ObstacleSpawnChance: 0.1
+  ObstacleSpawnChance: 0.05
   DepthCount: 4
   GroundTheshold: 0.85
   Music: {fileID: 963194230}
@@ -936,7 +936,7 @@ MonoBehaviour:
   - {fileID: 1924685876709192589, guid: 181e42cf91c3dab45b2651f163b1de9e, type: 3}
   TileCount: 40
   Score: 0
-  ScoreMobsSpawn: 100
+  ScoreMobsSpawn: 500
   ScoreOnKill: 10
   ScoreByTilePassed: 1
   StartPhase: 0
